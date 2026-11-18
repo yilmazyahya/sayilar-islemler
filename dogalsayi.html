@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Sınıf Matematik | Sayılar ve Nicelikler (1) - Yahya Öğretmen</title>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #3730A3;
+            --secondary: #0EA5E9;
+            --accent: #F59E0B;
+            --success: #10B981;
+            --danger: #EF4444;
+            --bg-main: #F0F4F8;
+            --card-bg: #FFFFFF;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --notebook-bg: #FFFBEB;
+            --notebook-line: #E2E8F0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        header.main-header {
+            background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #1D4ED8 100%);
+            color: white;
+            padding: 16px 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 900;
+        }
+
+        .header-top {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            font-size: 2rem;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 13px;
+            border-radius: 14px;
+        }
+
+        .brand h1 { font-size: 1.3rem; font-weight: 800; }
+        .brand p { font-size: 0.85rem; color: #C7D2FE; }
+
+        .stats-bar {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255,255,255,0.12);
+            padding: 8px 16px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-item { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 0.9rem; }
+
+        .progress-wrapper {
+            max-width: 1280px;
+            margin: 10px auto 0;
+            background: rgba(255,255,255,0.2);
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #F59E0B, #10B981);
+            transition: width 0.5s ease;
+        }
+
+        nav.main-nav {
+            max-width: 1280px;
+            margin: 16px auto;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: white;
+            border: 2px solid #E2E8F0;
+            padding: 12px 10px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+        }
+
+        .nav-btn:hover { transform: translateY(-2px); border-color: var(--primary); }
+        .nav-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 6px 15px rgba(79, 70, 229, 0.35);
+        }
+
+        .nav-btn.game-tab-btn {
+            background: linear-gradient(135deg, #0F172A, #1E293B);
+            color: #38BDF8;
+            border-color: #38BDF8;
+        }
+
+        .nav-btn.game-tab-btn.active {
+            background: linear-gradient(135deg, #0284C7, #0369A1);
+            color: white;
+            border-color: #FDE047;
+        }
+
+        .nav-btn span.step-badge {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            background: rgba(0,0,0,0.08);
+        }
+
+        .nav-btn.active span.step-badge { background: rgba(255,255,255,0.25); }
+
+        main { max-width: 1280px; margin: 0 auto; padding: 0 15px; }
+
+        .section-panel { display: none; animation: fadeIn 0.35s ease; }
+        .section-panel.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+            border: 1px solid #E2E8F0;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px dashed #E2E8F0;
+        }
+
+        .card-header h2 { font-size: 1.32rem; color: var(--primary-dark); }
+
+        .badge {
+            background: #EEF2FF;
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        /* DEFTER KUTUSU */
+        .notebook-box {
+            background-color: var(--notebook-bg);
+            background-image: linear-gradient(var(--notebook-line) 1px, transparent 1px);
+            background-size: 100% 32px;
+            border-left: 8px solid #EF4444;
+            border-top: 2px solid #FDE68A;
+            border-right: 2px solid #FDE68A;
+            border-bottom: 2px solid #FDE68A;
+            border-radius: 12px;
+            padding: 18px 24px 18px 30px;
+            margin: 18px 0;
+            position: relative;
+            box-shadow: 4px 6px 15px rgba(245, 158, 11, 0.12);
+        }
+
+        .notebook-box::before {
+            content: "📌 SÖZ UÇAR, YAZI KALIR! — DEFTERİNE YAZ";
+            display: inline-block;
+            background: #DC2626;
+            color: white;
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 4px 13px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .notebook-content { font-size: 1.02rem; color: #1E293B; line-height: 32px; }
+        .notebook-content strong { color: #B91C1C; background: rgba(254, 240, 138, 0.65); padding: 0 4px; border-radius: 4px; }
+
+        .write-confirm-btn {
+            margin-top: 14px;
+            background: #F59E0B;
+            color: white;
+            border: none;
+            padding: 9px 18px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .write-confirm-btn:hover { background: #D97706; }
+        .write-confirm-btn.completed { background: var(--success); cursor: default; }
+
+        /* 12 Basamaklı Bölük Tablosu */
+        .boluk-container { overflow-x: auto; margin: 18px 0; }
+        .boluk-grid { display: grid; grid-template-columns: repeat(4, minmax(220px, 1fr)); gap: 10px; min-width: 900px; }
+        .boluk-group { border-radius: 16px; padding: 12px; text-align: center; border: 2px solid; }
+        .boluk-milyar { background: #FEF2F2; border-color: #FCA5A5; }
+        .boluk-milyon { background: #EFF6FF; border-color: #93C5FD; }
+        .boluk-binler { background: #ECFDF5; border-color: #6EE7B7; }
+        .boluk-birler { background: #FFFBEB; border-color: #FCD34D; }
+
+        .boluk-title { font-weight: 800; font-size: 0.9rem; padding: 6px; border-radius: 8px; margin-bottom: 10px; color: white; }
+        .boluk-milyar .boluk-title { background: #EF4444; }
+        .boluk-milyon .boluk-title { background: #3B82F6; }
+        .boluk-binler .boluk-title { background: #10B981; }
+        .boluk-birler .boluk-title { background: #F59E0B; }
+
+        .basamak-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+        .basamak-cell { background: white; border-radius: 10px; padding: 8px 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; }
+        .basamak-name { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); height: 32px; display: flex; align-items: center; justify-content: center; }
+        .digit-input { width: 42px; height: 46px; text-align: center; font-size: 1.4rem; font-weight: 800; border: 2px solid #CBD5E1; border-radius: 10px; margin: 5px 0; color: var(--primary-dark); }
+        .abacus-rod { display: flex; flex-direction: column-reverse; align-items: center; height: 100px; width: 24px; background: linear-gradient(90deg, transparent 42%, #92400E 42%, #92400E 58%, transparent 58%); padding-bottom: 4px; border-bottom: 6px solid #78350F; margin-top: 4px; }
+        .bead { width: 20px; height: 9px; border-radius: 50%; margin-bottom: 1px; box-shadow: inset 0 -2px 3px rgba(0,0,0,0.3); }
+
+        .read-output { background: #1E293B; color: #F8FAFC; padding: 16px 24px; border-radius: 14px; margin-top: 14px; font-size: 1.1rem; text-align: center; }
+        .read-output span { color: #38BDF8; font-weight: 700; display: block; font-size: 1.25rem; margin-top: 4px; }
+
+        /* Butonlar ve Formlar */
+        .btn { background: var(--primary); color: white; border: none; padding: 9px 16px; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 0.9rem; transition: 0.2s; }
+        .btn:hover { background: var(--primary-dark); }
+        .btn-secondary { background: var(--secondary); }
+        .btn-secondary:hover { background: #0284C7; }
+        .btn-success { background: var(--success); }
+        .btn-success:hover { background: #059669; }
+        .btn-outline { background: white; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-outline:hover { background: #EEF2FF; }
+        .btn-hint { background: #FEF3C7; color: #B45309; border: 2px solid #F59E0B; }
+        .btn-hint:hover { background: #FDE68A; }
+
+        .preset-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+        .pill { background: #E0E7FF; color: #3730A3; border: none; padding: 7px 14px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; cursor: pointer; }
+        .pill:hover { background: #C7D2FE; }
+
+        .exercise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 15px; }
+        .exercise-item { background: #F8FAFC; border: 2px solid #E2E8F0; border-radius: 14px; padding: 16px; }
+        .exercise-item input { width: 100%; padding: 10px; border: 2px solid #CBD5E1; border-radius: 8px; margin: 10px 0; font-size: 1rem; font-weight: 600; }
+        .feedback { font-weight: 700; font-size: 0.92rem; margin-top: 8px; min-height: 22px; }
+        .feedback.ok { color: var(--success); }
+        .feedback.err { color: #B45309; background: #FFFBEB; padding: 8px 12px; border-radius: 8px; border-left: 4px solid #F59E0B; }
+
+        /* Antik Mısır & Tablolar */
+        .egypt-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; background: #FEF3C7; padding: 15px; border-radius: 14px; border: 2px solid #F59E0B; margin: 15px 0; text-align: center; }
+        .egypt-symbol { background: white; padding: 10px; border-radius: 10px; }
+        .egypt-symbol .icon { font-size: 1.8rem; display: block; }
+
+        table.data-table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; border-radius: 10px; overflow: hidden; }
+        table.data-table th, table.data-table td { border: 1px solid #CBD5E1; padding: 10px 14px; text-align: center; }
+        table.data-table th { background: var(--primary); color: white; }
+
+        /* Tahta Görseli */
+        .chalkboard {
+            background: #14532D;
+            color: #F8FAFC;
+            border: 10px solid #78350F;
+            border-radius: 16px;
+            padding: 22px;
+            margin: 15px 0;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+        }
+        .chalkboard h4 { color: #FDE047; margin-bottom: 10px; font-size: 1.15rem; }
+        .math-triad { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; margin-top: 15px; }
+        .triad-box { background: rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 12px; text-align: center; font-size: 1.15rem; font-weight: 700; border: 1px dashed rgba(255,255,255,0.4); }
+
+        /* ==================== 25 ADET GÖRSELLİ & İPUCU TABANLI GERÇEK YAŞAM PROBLEMLERİ ==================== */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+            background: #F8FAFC;
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid #E2E8F0;
+            align-items: center;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid #CBD5E1;
+            color: var(--text-dark);
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .prob-card {
+            background: #FFFFFF;
+            border: 2px solid #E2E8F0;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: 0.2s;
+        }
+
+        .prob-card.solved {
+            border-color: var(--success);
+            background: #F0FDF4;
+        }
+
+        .prob-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #F1F5F9;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .prob-num {
+            background: var(--primary);
+            color: white;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+        }
+
+        .prob-cat {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #475569;
+            background: #E2E8F0;
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        .prob-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        @media (max-width: 780px) {
+            .prob-grid { grid-template-columns: 1fr; }
+        }
+
+        .prob-visual {
+            background: #F8FAFC;
+            border: 2px dashed #94A3B8;
+            border-radius: 14px;
+            padding: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 135px;
+        }
+
+        .prob-text {
+            font-size: 1.01rem;
+            color: #1E293B;
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        .prob-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .prob-controls input {
+            width: 190px;
+            padding: 10px 14px;
+            border: 2px solid #CBD5E1;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .hint-drawer {
+            display: none;
+            background: #FFFBEB;
+            border-left: 4px solid #F59E0B;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-size: 0.94rem;
+            color: #78350F;
+        }
+        .hint-drawer.visible { display: block; }
+
+        /* ==================== DİNAMİK 1-2-3-4 KİŞİLİK YARIŞMA ARENASI ==================== */
+        .arena-wrapper {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-radius: 20px;
+            padding: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 3px solid #334155;
+            position: relative;
+        }
+
+        .arena-wrapper.fullscreen-mode {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: 9999;
+            border-radius: 0;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .arena-header {
+            background: #1E293B;
+            padding: 12px 16px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 2px solid #334155;
+            margin-bottom: 14px;
+        }
+
+        .arena-header h2 { font-size: 1.15rem; color: #38BDF8; }
+
+        .player-selector {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #0F172A;
+            padding: 5px 10px;
+            border-radius: 10px;
+            border: 1px solid #475569;
+        }
+
+        .player-selector span { font-size: 0.82rem; font-weight: 700; color: #94A3B8; }
+
+        .p-count-btn {
+            background: #334155;
+            color: white;
+            border: none;
+            padding: 5px 11px;
+            border-radius: 6px;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .p-count-btn.active { background: #F59E0B; color: #0F172A; }
+
+        .arena-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+
+        .arena-btn {
+            background: #0284C7;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.88rem;
+        }
+
+        .board-grid { display: grid; gap: 14px; flex: 1; min-height: 500px; }
+        .board-grid.cols-1 { grid-template-columns: 1fr; max-width: 720px; margin: 0 auto; width: 100%; }
+        .board-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+        .board-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .board-grid.cols-4 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+
+        @media (max-width: 850px) {
+            .board-grid.cols-2, .board-grid.cols-3, .board-grid.cols-4 { grid-template-columns: 1fr; grid-template-rows: auto; }
+        }
+
+        .team-box {
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 3px solid transparent;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+        }
+
+        .team-blue { background: #1E3A8A; border-color: #3B82F6; }
+        .team-red { background: #881337; border-color: #F43F5E; }
+        .team-green { background: #14532D; border-color: #22C55E; }
+        .team-yellow { background: #713F12; border-color: #EAB308; }
+
+        .team-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 8px; }
+        .team-title { font-size: 1.15rem; font-weight: 800; }
+        .score-badge { font-size: 1rem; background: rgba(0,0,0,0.45); padding: 4px 12px; border-radius: 20px; color: #FDE047; font-weight: 800; }
+
+        .question-area { background: rgba(0,0,0,0.32); border-radius: 10px; padding: 14px; margin: 10px 0; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .station-name { font-size: 0.78rem; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 800; }
+        .q-text { font-size: 1.05rem; margin: 10px 0; font-weight: 600; line-height: 1.4; color: #F8FAFC; }
+        .answers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+        .ans-btn {
+            background: rgba(255,255,255,0.14);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 11px 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.94rem;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.15s;
+        }
+        .ans-btn:hover { background: rgba(255,255,255,0.32); }
+        .ans-btn:disabled { cursor: not-allowed; opacity: 0.8; }
+
+        .timer-bar { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.3); padding: 6px 12px; border-radius: 8px; }
+        .time-text { font-size: 1rem; font-weight: 800; font-family: monospace; }
+        .status-tag { font-size: 0.8rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; }
+        .status-waiting { background: #475569; color: #fff; }
+        .status-done { background: #16A34A; color: #fff; }
+
+        .victory-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 10000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .victory-title { font-size: 3rem; color: #FDE047; text-shadow: 0 0 20px rgba(253, 224, 71, 0.6); margin-bottom: 12px; }
+        .winner-team-name { font-size: 2.1rem; font-weight: 800; color: #38BDF8; margin-bottom: 25px; }
+        #confettiCanvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 10001; }
+
+        .certificate {
+            background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+            border: 10px double #D97706;
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .certificate h2 { color: #92400E; font-size: 2rem; margin-bottom: 10px; }
+        .cert-name { font-size: 1.8rem; font-weight: 800; color: var(--primary-dark); border-bottom: 3px solid #D97706; display: inline-block; padding: 5px 30px; margin: 15px 0; }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-top">
+        <div class="brand">
+            <div class="brand-icon">🚀</div>
+            <div>
+                <h1>5. SINIF MATEMATİK ATÖLYESİ • YAHYA ÖĞRETMEN</h1>
+                <p>2. Tema: Sayılar ve Nicelikler (1) • Doğal Sayılar ve İşlemler</p>
+            </div>
+        </div>
+        <div class="stats-bar">
+            <div class="stat-item">⭐ Puan: <span id="scoreDisplay">0</span></div>
+            <div class="stat-item">🧩 Çözülen Problem: <span id="probSolvedDisplay">0</span> / 25</div>
+            <div class="stat-item">📓 Defter: <span id="notesDisplay">0</span> / 7</div>
+        </div>
+    </div>
+    <div class="progress-wrapper">
+        <div class="progress-fill" id="progressBar"></div>
+    </div>
+</header>
+
+<nav class="main-nav">
+    <button class="nav-btn active" onclick="switchTab('tab1', this)">
+        <span class="step-badge">1. DURAK</span>
+        🔭 Çok Basamaklı Sayılar
+    </button>
+    <button class="nav-btn" onclick="switchTab('tab2', this)">
+        <span class="step-badge">2. DURAK</span>
+        🏺 Basamak & Çözümleme
+    </button>
+    <button class="nav-btn" onclick="switchTab('tab3', this)">
+        <span class="step-badge">3. DURAK</span>
+        🌲 Sıralama & Karşılaştırma
+    </button>
+    <button class="nav-btn" onclick="switchTab('tab4', this)">
+        <span class="step-badge">4. DURAK</span>
+        ⚡ Kısa Yoldan İşlemler
+    </button>
+    <button class="nav-btn" onclick="switchTab('tab5', this)">
+        <span class="step-badge">18 SAATLİK BÖLÜM</span>
+        🧩 25 Gerçek Yaşam Problemi
+    </button>
+    <button class="nav-btn game-tab-btn" onclick="switchTab('tab6', this)">
+        <span class="step-badge">1-2-3-4 KİŞİLİK</span>
+        🎮 Yarışma Arenası
+    </button>
+    <button class="nav-btn" onclick="switchTab('tab7', this)">
+        <span class="step-badge">FİNAL</span>
+        🎓 Test & Sertifika
+    </button>
+</nav>
+
+<main>
+    <!-- ==================== 1. DURAK: ÇOK BASAMAKLI SAYILAR ==================== -->
+    <section id="tab1" class="section-panel active">
+        <div class="card">
+            <div class="card-header">
+                <span class="badge">KEŞFETME ALANI</span>
+                <h2>1. Uzay Yolculuğu: Çok Basamaklı Doğal Sayıları Okuma ve Yazma</h2>
+            </div>
+            <p>Gezegenlerin Güneş'e olan uzaklıklarını araştıran Emre ve kardeşi Merve, 9 ve 10 basamaklı sayılarla karşılaştılar: <strong>Dünya'nın Güneş'e uzaklığı 149 597 890 km</strong>, <strong>Neptün'ün uzaklığı ise 4 498 252 900 km</strong>'dir. Bu dev sayıları kolayca okumak için sağdan sola doğru <strong>3'erli gruplara (BÖLÜKLERE)</strong> ayırırız!</p>
+
+            <div class="notebook-box">
+                <div class="notebook-content">
+                    <strong>BÖLÜK NEDİR?</strong> Doğal sayılarda rakamların sağdan sola doğru üçerli gruplandırılmasıyla oluşan her bir gruba <strong>BÖLÜK</strong> denir.<br>
+                    • Sağdan 1. grup: <strong>Birler Bölüğü</strong> (Okunurken bölük adı söylenmez!)<br>
+                    • Sağdan 2. grup: <strong>Binler Bölüğü</strong> (Sayı okunur + "bin" denir)<br>
+                    • Sağdan 3. grup: <strong>Milyonlar Bölüğü</strong> (Sayı okunur + "milyon" denir)<br>
+                    • Sağdan 4. grup: <strong>Milyarlar Bölüğü</strong> (Sayı okunur + "milyar" denir)<br>
+                    <strong>Örnek:</strong> 149 597 890 &rarr; <em>"Yüz kırk dokuz milyon beş yüz doksan yedi bin sekiz yüz doksan"</em>
+                </div>
+                <button class="write-confirm-btn" onclick="markNote(this, 1)">✍️ Defterime Yazdım (+20 Puan)</button>
+            </div>
+
+            <h3 style="margin: 18px 0 8px; color: var(--primary-dark);">🎛️ İnteraktif 12 Basamaklı Abaküs ve Bölük Makinesi</h3>
+            <div class="preset-pills">
+                <button class="pill" onclick="setAbacusNumber('000149597890')">🌍 Dünya: 149 597 890</button>
+                <button class="pill" onclick="setAbacusNumber('004498252900')">🔵 Neptün: 4 498 252 900</button>
+                <button class="pill" onclick="setAbacusNumber('000032404622')">🧮 Örnek: 32 404 622</button>
+                <button class="pill" onclick="setAbacusNumber('100410073001')">🚀 Dev Sayı: 100 410 073 001</button>
+                <button class="pill" style="background:#FEE2E2; color:#991B1B;" onclick="setAbacusNumber('000000000000')">🗑️ Sıfırla</button>
+            </div>
+
+            <div class="boluk-container">
+                <div class="boluk-grid" id="abacusGrid"></div>
+            </div>
+
+            <div class="read-output">
+                Sayının Okunuşu:
+                <span id="liveReadingText">Sıfır</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge">UYGULAMA ZAMANI</span>
+                <h2>🎯 Sıra Sende: Alıştırmaları Çöz!</h2>
+            </div>
+            <div class="exercise-grid">
+                <div class="exercise-item">
+                    <strong>1. Okunuşu Rakamla Yaz:</strong>
+                    <p>"Dört milyar altı milyon üç yüz" sayısını bölükler arasında boşluk bırakarak yazınız.</p>
+                    <input type="text" id="q1_1" placeholder="Örn: 8 500 290">
+                    <button class="btn" onclick="checkSimpleAnswer('q1_1', '4 006 000 300', 'fb1_1', 'İpucu: Milyarlar 4, Milyonlar 006, Binler 000, Birler 300 şeklinde 3 basamaklı gruplar oluştur.')">Kontrol Et</button>
+                    <div class="feedback" id="fb1_1"></div>
+                </div>
+                <div class="exercise-item">
+                    <strong>2. Bölük Avcısı:</strong>
+                    <p><strong>5 908 001 783</strong> sayısının <u>binler bölüğündeki</u> sayı kaçtır?</p>
+                    <input type="text" id="q1_2" placeholder="Sadece sayıyı yazın...">
+                    <button class="btn" onclick="checkSimpleAnswer('q1_2', '1', 'fb1_2', 'İpucu: Sağdan ikinci 3 basamaklı gruba (001) bakmalısın. Baştaki sıfırlar okunmaz.')">Kontrol Et</button>
+                    <div class="feedback" id="fb1_2"></div>
+                </div>
+                <div class="exercise-item">
+                    <strong>3. Bölükleri Birleştir:</strong>
+                    <p>Milyarlar: <strong>12</strong>, Milyonlar: <strong>632</strong>, Binler: <strong>5</strong>, Birler: <strong>78</strong> olan sayıyı yazınız.</p>
+                    <input type="text" id="q1_3" placeholder="Boşluk bırakarak yazın...">
+                    <button class="btn" onclick="checkSimpleAnswer('q1_3', '12 632 005 078', 'fb1_3', 'İpucu: Binler (005) ve Birler (078) bölüklerini 3 basamağa tamamlamak için soluna 0 ekle.')">Kontrol Et</button>
+                    <div class="feedback" id="fb1_3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 2. DURAK: BASAMAK DEĞERİ & ÇÖZÜMLEME ==================== -->
+    <section id="tab2" class="section-panel">
+        <div class="card">
+            <div class="card-header">
+                <span class="badge">DERİNLEŞME ALANI</span>
+                <h2>2. Basamak Değeri ve Eski Mısır'dan Günümüze Çözümleme</h2>
+            </div>
+            <p>Bir rakamın bulunduğu basamağa göre aldığı değere <strong>Basamak Değeri</strong> denir. Bir sayıyı rakamlarının basamak değerlerinin toplamı şeklinde yazmaya ise <strong>Çözümleme</strong> denir.</p>
+
+            <div class="notebook-box">
+                <div class="notebook-content">
+                    <strong>SAYI DEĞERİ vs BASAMAK DEĞERİ:</strong><br>
+                    • <strong>Sayı Değeri:</strong> Rakamın kendi değeridir, yeri değişse de değişmez.<br>
+                    • <strong>Basamak Değeri:</strong> Rakam ile bulunduğu basamağın değerinin çarpımıdır.<br>
+                    • <strong>Çözümleme Örneği:</strong> 2 140 503 sayısını iki farklı yolla çözümleyebiliriz:<br>
+                    <strong>1. Yol:</strong> (2 &times; 1 000 000) + (1 &times; 100 000) + (4 &times; 10 000) + (5 &times; 100) + (3 &times; 1)<br>
+                    <strong>2. Yol:</strong> 2 000 000 + 100 000 + 40 000 + 500 + 3
+                </div>
+                <button class="write-confirm-btn" onclick="markNote(this, 2)">✍️ Defterime Yazdım (+20 Puan)</button>
+            </div>
+
+            <h3 style="margin: 18px 0 8px; color: var(--primary-dark);">🏺 Antik Mısır Hiyeroglifleriyle Sayı Çözümleme</h3>
+            <div class="egypt-legend">
+                <div class="egypt-symbol"><span class="icon">🧍‍♂️</span><strong>1 000 000</strong><br><small>Şaşıran Adam</small></div>
+                <div class="egypt-symbol"><span class="icon">🐸</span><strong>100 000</strong><br><small>Kurbağa</small></div>
+                <div class="egypt-symbol"><span class="icon">☝️</span><strong>10 000</strong><br><small>Parmak</small></div>
+                <div class="egypt-symbol"><span class="icon">🪷</span><strong>1 000</strong><br><small>Nil Çiçeği</small></div>
+                <div class="egypt-symbol"><span class="icon">🌀</span><strong>100</strong><br><small>Sarmal İp</small></div>
+                <div class="egypt-symbol"><span class="icon">🧲</span><strong>10</strong><br><small>Topuk Kemiği</small></div>
+                <div class="egypt-symbol"><span class="icon">🪵</span><strong>1</strong><br><small>Çubuk</small></div>
+            </div>
+
+            <div class="exercise-item" style="background: #FFFBEB; border-color: #F59E0B;">
+                <strong>🔍 Mısır Tableti Görevi:</strong>
+                <p style="font-size: 1.5rem; margin: 10px 0; letter-spacing: 3px;">
+                    🧍‍♂️🧍‍♂️🧍‍♂️ &nbsp; 🐸🐸 &nbsp; 🪷🪷🪷🪷 &nbsp; 🌀 &nbsp; 🧲🧲🧲 &nbsp; 🪵🪵🪵🪵🪵
+                </p>
+                <p>Yukarıdaki sembollerin oluşturduğu doğal sayı kaçtır?</p>
+                <input type="text" id="q2_egypt" placeholder="Örn: 2 140 503">
+                <button class="btn" onclick="checkSimpleAnswer('q2_egypt', '3 204 135', 'fb2_egypt', 'İpucu: 3 milyon, 2 yüz bin, 0 on bin (parmak sembolü yok!), 4 bin, 1 yüz, 3 on, 5 birlik var.')">Tableti Çöz!</button>
+                <div class="feedback" id="fb2_egypt"></div>
+            </div>
+
+            <h3 style="margin: 22px 0 8px; color: var(--primary-dark);">⚡ Otomatik Sayı Çözümleyici</h3>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <input type="number" id="decomposeInput" placeholder="Çözümlenecek bir sayı yaz (Örn: 15702436)" style="flex:1; min-width:240px; padding:12px; border-radius:10px; border:2px solid #CBD5E1; font-size:1.1rem;">
+                <button class="btn btn-secondary" onclick="runDecomposer()">Sayıyı Çözümle</button>
+            </div>
+            <div id="decomposerResult" style="margin-top:15px; background:#F1F5F9; padding:15px; border-radius:12px; font-weight:600; display:none;"></div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. DURAK: SIRALAMA & KARŞILAŞTIRMA ==================== -->
+    <section id="tab3" class="section-panel">
+        <div class="card">
+            <div class="card-header">
+                <span class="badge">ANALİZ ALANI</span>
+                <h2>3. Millî Ağaçlandırma Günü: Doğal Sayıları Karşılaştırma ve Sıralama</h2>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Yıl</th><th>Dikilen Fidan Sayısı</th><th>Basamak Sayısı</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>2019</td><td><strong>13 791 435</strong></td><td>8 Basamaklı (En Büyük!)</td></tr>
+                    <tr><td>2020</td><td><strong>4 446 803</strong></td><td>7 Basamaklı</td></tr>
+                    <tr><td>2021</td><td><strong>5 200 000</strong></td><td>7 Basamaklı</td></tr>
+                    <tr><td>2022</td><td><strong>4 200 000</strong></td><td>7 Basamaklı (En Küçük!)</td></tr>
+                </tbody>
+            </table>
+
+            <div class="notebook-box">
+                <div class="notebook-content">
+                    <strong>DOĞAL SAYILARI KARŞILAŞTIRMA KURALLARI:</strong><br>
+                    1. <strong>Basamak Sayısına Bak:</strong> Basamak sayısı fazla olan doğal sayı her zaman daha büyüktür. (Örn: 8 basamaklı 13 791 435 &gt; 7 basamaklı 5 200 000)<br>
+                    2. <strong>Basamak Sayıları Eşitse:</strong> En büyük basamaktan (en soldan) başlayarak aynı basamaktaki rakamlar karşılaştırılır. Rakamı büyük olan sayı daha büyüktür.<br>
+                    <strong>Sıralama:</strong> 13 791 435 &gt; 5 200 000 &gt; 4 446 803 &gt; 4 200 000
+                </div>
+                <button class="write-confirm-btn" onclick="markNote(this, 3)">✍️ Defterime Yazdım (+20 Puan)</button>
+            </div>
+
+            <div class="exercise-grid">
+                <div class="exercise-item">
+                    <strong>🌲 Bölük Değişimi:</strong>
+                    <p>2019 yılındaki <strong>13 791 435</strong> sayısının <u>birler bölüğü</u> ile <u>binler bölüğü</u> yer değiştirirse yeni sayı kaç olur?</p>
+                    <input type="text" id="q3_1" placeholder="Boşluklu yazınız...">
+                    <button class="btn" onclick="checkSimpleAnswer('q3_1', '13 435 791', 'fb3_1', 'İpucu: Milyonlar bölüğü (13) sabit kalır; 791 ile 435 yer değiştirir.')">Kontrol Et</button>
+                    <div class="feedback" id="fb3_1"></div>
+                </div>
+                <div class="exercise-item">
+                    <strong>🃏 Kartlarla En Büyük Sayı:</strong>
+                    <p><strong>[700] , [851] , [058] , [009]</strong> kartlarını birer kez kullanarak oluşturulabilecek <strong>11 basamaklı en büyük</strong> sayı kaçtır?</p>
+                    <input type="text" id="q3_2" placeholder="Örn: 9 851 700 058">
+                    <button class="btn" onclick="checkSimpleAnswer('q3_2', '9 851 700 058', 'fb3_2', 'İpucu: 11 basamaklı olması için en soldaki milyarlar bölüğüne 2 basamaklı [009] kartını (9 olarak) koymalısın.')">Kontrol Et</button>
+                    <div class="feedback" id="fb3_2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. DURAK: KISA YOLDAN ÇARPMA & BÖLME ==================== -->
+    <section id="tab4" class="section-panel">
+        <div class="card">
+            <div class="card-header">
+                <span class="badge">HIZ KAZANMA ALANI</span>
+                <h2>4. Sıfırların Dansı: Kısa Yoldan Çarpma ve Bölme İşlemi</h2>
+            </div>
+
+            <div class="notebook-box">
+                <div class="notebook-content">
+                    <strong>KISA YOLDAN ÇARPMA KURALI:</strong><br>
+                    Sonunda sıfır bulunan sayılar çarpılırken, <strong>sıfırlar yokmuş gibi</strong> diğer sayılar çarpılır. Çarpılan sayıların sonundaki <strong>toplam sıfır sayısı kadar sıfır</strong> sonucun sağına eklenir.<br>
+                    • Örnek: 32 &times; 5000 &rarr; (32 &times; 5 = 160) + yanına 3 sıfır = <strong>160 000</strong><br><br>
+                    <strong>KISA YOLDAN BÖLME KURALI:</strong><br>
+                    Sonunda sıfır bulunan sayılar bölünürken, bölünen ve bölenden <strong>eşit sayıda sıfır silinir</strong>, ardından kalan sayılar bölünür.<br>
+                    • Örnek: 6000 &divide; 300 &rarr; İkişer sıfır sil: 60 &divide; 3 = <strong>20</strong>
+                </div>
+                <button class="write-confirm-btn" onclick="markNote(this, 4)">✍️ Defterime Yazdım (+20 Puan)</button>
+            </div>
+
+            <div class="chalkboard">
+                <h4>🧑‍🏫 Yahya Öğretmenin Tahtası: Çarpma ve Bölme İlişkisi (Verilmeyeni Bulma)</h4>
+                <p>Çarpma ve bölme birbirinin tersi olan ikiz işlemlerdir. Biri diğerinin sağlamasını yapar!</p>
+                <div class="math-triad">
+                    <div class="triad-box">
+                        36 &times; 15 = 540<br>
+                        <small style="color:#86EFAC;">Çarpan &times; Çarpan = Çarpım</small>
+                    </div>
+                    <div class="triad-box">
+                        540 &divide; 36 = 15<br>
+                        <small style="color:#93C5FD;">Verilmeyen Çarpan = Çarpım &divide; Verilen Çarpan</small>
+                    </div>
+                    <div class="triad-box">
+                        600 &divide; 25 = 24<br>
+                        <small style="color:#FDE047;">Bölünen = Bölen &times; Bölüm (25 &times; 24 = 600)</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notebook-box">
+                <div class="notebook-content">
+                    <strong>VERİLMEYEN TERİMİ BULMA FORMÜLLERİ:</strong><br>
+                    • <strong>Çarpmada Verilmeyen Çarpan:</strong> Çarpım, verilen çarpana <strong>bölünür</strong>.<br>
+                    • <strong>Bölmede Verilmeyen Bölünen:</strong> Bölen ile Bölüm <strong>çarpılır</strong> (Varsa kalan eklenir).<br>
+                    • <strong>Bölmede Verilmeyen Bölen:</strong> Bölünen, bölüme <strong>bölünür</strong>.
+                </div>
+                <button class="write-confirm-btn" onclick="markNote(this, 5)">✍️ Defterime Yazdım (+20 Puan)</button>
+            </div>
+
+            <div class="exercise-grid">
+                <div class="exercise-item">
+                    <strong>⚡ Kısa Yoldan Çarp:</strong>
+                    <p>500 &times; 48 = ?</p>
+                    <input type="text" id="q4_1" placeholder="Sonucu yazınız...">
+                    <button class="btn" onclick="checkSimpleAnswer('q4_1', '24 000', 'fb4_1', 'İpucu: Önce 5 ile 48 sayısını çarp (240), sonra sağına 2 tane sıfır ekle.')">Kontrol Et</button>
+                    <div class="feedback" id="fb4_1"></div>
+                </div>
+                <div class="exercise-item">
+                    <strong>⚡ Kısa Yoldan Böl:</strong>
+                    <p>9000 &divide; 250 = ?</p>
+                    <input type="text" id="q4_2" placeholder="Sonucu yazınız...">
+                    <button class="btn" onclick="checkSimpleAnswer('q4_2', '36', 'fb4_2', 'İpucu: Her iki sayıdan birer sıfır sil: 900 ÷ 25 işlemini yap.')">Kontrol Et</button>
+                    <div class="feedback" id="fb4_2"></div>
+                </div>
+                <div class="exercise-item">
+                    <strong>🔍 Verilmeyen Çarpan:</strong>
+                    <p>14 &times; [ ? ] = 784 işleminde kutu yerine kaç gelir?</p>
+                    <input type="text" id="q4_3" placeholder="Sonucu yazınız...">
+                    <button class="btn" onclick="checkSimpleAnswer('q4_3', '56', 'fb4_3', 'İpucu: Verilmeyen çarpanı bulmak için çarpımı (784) verilen çarpana (14) bölmelisin.')">Kontrol Et</button>
+                    <div class="feedback" id="fb4_3"></div>
+                </div>
+                <div class="exercise-item">
+                    <strong>🔍 Verilmeyen Bölen:</strong>
+                    <p>2970 &divide; [ ? ] = 90 işleminde bölen kaçtır?</p>
+                    <input type="text" id="q4_4" placeholder="Sonucu yazınız...">
+                    <button class="btn" onclick="checkSimpleAnswer('q4_4', '33', 'fb4_4', 'İpucu: Verilmeyen böleni bulmak için 2970 sayısını 90 sayısına böl (birer sıfır silebilirsin: 297 ÷ 9).')">Kontrol Et</button>
+                    <div class="feedback" id="fb4_4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. DURAK: 25 ADET GÖRSELLİ & İPUCU TABANLI GERÇEK YAŞAM PROBLEMLERİ ==================== -->
+    <section id="tab5" class="section-panel">
+        <div class="card">
+            <div class="card-header">
+                <span class="badge">18 DERS SAATLİK BÖLÜM • 25 PROBLEM</span>
+                <h2>5. Doğal Sayılarla Dört İşlem İçeren Gerçek Yaşam Problemleri (25 Soru)</h2>
+            </div>
+            <p>Ders kitabımızdaki <strong>25 gerçek yaşam probleminin</strong> tamamı, özgün vektör görselleri ve rehber ipuçlarıyla burada! Yanlış cevap verdiğinde sistem sana doğrudan cevabı söylemek yerine <strong>adımsal bir ipucu</strong> verecek, böylece cevaba kendi zihninle ulaşacaksın.</p>
+
+            <div class="notebook-box">
+                <div class="notebook-content">
+                    <strong>PROBLEM ÇÖZERKEN UNUTULMAYACAK 4 TEMEL İLKE (DEFTERİNE YAZ):</strong><br>
+                    1. <strong>Verilen ve İsteneni Belirle:</strong> Görseli ve metni dikkatlice inceleyip hangi verilerin kullanılacağını belirle.<br>
+                    2. <strong>Kalanı Yorumla:</strong> Taksit, teleferik seferi, baskı süresi gibi durumlarda kalan varsa <strong>bölüme +1 eklenir</strong>.<br>
+                    3. <strong>En Fazla / En Az Stratejisi:</strong> Belirli bir parayla en fazla sayıda fidan veya ürün almak için zorunlu ürünler alındıktan sonra kalan parayla <strong>en ucuz ürün</strong> alınır.<br>
+                    4. <strong>Zaman ve Takvim Hesapları:</strong> Ders aralarındaki mola sayısı, ders sayısının 1 eksiğidir. Tarih farklarında önce gün, sonra ay, sonra yıl çıkarılır.
+                </div>
+                <button class="write-confirm-btn" onclick="markNote(this, 6)">✍️ Defterime Yazdım (+20 Puan)</button>
+            </div>
+
+            <!-- KATEGORİ FİLTRELEME ÇUBUĞU -->
+            <div class="filter-bar">
+                <strong style="font-size:0.9rem; margin-right:5px;">📂 Kategori Filtrele:</strong>
+                <button class="filter-btn active" onclick="filterProblems('ALL', this)">Tümü (25 Problem)</button>
+                <button class="filter-btn" onclick="filterProblems('1-10', this)">Problemler 1 - 10</button>
+                <button class="filter-btn" onclick="filterProblems('11-18', this)">Problemler 11 - 18</button>
+                <button class="filter-btn" onclick="filterProblems('19-25', this)">Problemler 19 - 25</button>
+            </div>
+
+            <div id="problemsContainer">
+                <!-- JS ile 25 problem özgün SVG görselleriyle buraya yüklenecek -->
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="notebook-box">
+                <div class="notebook-content">
+                    <strong>KENDİNİ DEĞERLENDİR (DEFTERİNE YAZ):</strong><br>
+                    • Problemleri çözerken önce <strong>tahminî sonuç</strong> bulup ardından <strong>gerçek sonuç</strong> ile karşılaştırmak işlem hatası yapmamızı önler!
+                </div>
+                <button class="write-confirm-btn" onclick="markNote(this, 7)">✍️ Defterime Yazdım (+20 Puan)</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 6. DURAK: 1-2-3-4 KİŞİLİK YARIŞMA ARENASI ==================== -->
+    <section id="tab6" class="section-panel">
+        <div class="arena-wrapper" id="arenaContainer">
+            <div class="arena-header">
+                <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                    <h2>🎮 MAT-MACERA: BAĞIMSIZ KULVAR ARENASI</h2>
+                    <div style="background:#0F172A; border:2px solid #38BDF8; padding:6px 14px; border-radius:10px; font-weight:800; font-size:1.05rem; color:#FDE047; font-family:monospace;">
+                        ⏱ GENEL SÜRE: <span id="globalTimerDisplay">00.0</span> sn
+                    </div>
+                </div>
+                
+                <div class="player-selector">
+                    <span>👥 Oyuncu / Grup Sayısı:</span>
+                    <button class="p-count-btn" id="pc-1" onclick="setPlayerCount(1)">1 Kişi (Tekli)</button>
+                    <button class="p-count-btn" id="pc-2" onclick="setPlayerCount(2)">2 Grup</button>
+                    <button class="p-count-btn" id="pc-3" onclick="setPlayerCount(3)">3 Grup</button>
+                    <button class="p-count-btn active" id="pc-4" onclick="setPlayerCount(4)">4 Grup</button>
+                </div>
+
+                <div class="arena-controls">
+                    <button class="arena-btn" id="btnStartRace" style="background:#16A34A; font-size:0.95rem; padding:9px 18px;" onclick="yarisiBaslat()">▶ YARIŞI BAŞLAT</button>
+                    <button class="arena-btn" style="background:#F59E0B; color:#0F172A;" onclick="oyunuSifirlaVeYenidenBaslat()">🔄 Yeni Oyun</button>
+                    <button class="arena-btn" style="background:#6366F1;" onclick="toggleFullscreen()">⛶ Tam Ekran</button>
+                </div>
+            </div>
+
+            <div class="board-grid cols-4" id="arenaBoardGrid"></div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. DURAK: USTALIK TESTİ & SERTİFİKA ==================== -->
+    <section id="tab7" class="section-panel">
+        <div class="card">
+            <div class="card-header">
+                <span class="badge">DEĞERLENDİRME</span>
+                <h2>🏆 Tema Sonu Ustalık Sınavı</h2>
+            </div>
+            <div class="exercise-grid">
+                <div class="exercise-item">
+                    <strong>Soru 1:</strong>
+                    <p>"Dokuz yüz sekiz milyar seksen üç milyon altı yüz elli üç bin dokuz yüz yirmi sekiz" sayısının <strong>milyarlar bölüğündeki</strong> sayı kaçtır?</p>
+                    <input type="text" id="exam1" placeholder="Cevabınız...">
+                    <button class="btn" onclick="checkSimpleAnswer('exam1', '908', 'efb1', 'İpucu: Milyar kelimesinden hemen önce okunan sayıyı yazmalısın.')">Cevapla</button>
+                    <div class="feedback" id="efb1"></div>
+                </div>
+                <div class="exercise-item">
+                    <strong>Soru 2:</strong>
+                    <p><strong>36 463 786 069</strong> doğal sayısındaki <u>milyonlar basamağında</u> bulunan 6 rakamının basamak değeri kaçtır?</p>
+                    <input type="text" id="exam2" placeholder="Örn: 6 000 000">
+                    <button class="btn" onclick="checkSimpleAnswer('exam2', '6 000 000', 'efb2', 'İpucu: Milyonlar bölüğünün en sağındaki 6 rakamının sağında 6 tane basamak vardır.')">Cevapla</button>
+                    <div class="feedback" id="efb2"></div>
+                </div>
+                <div class="exercise-item">
+                    <strong>Soru 3:</strong>
+                    <p>Bir ayakkabı atölyesinde günde 98 çift ayakkabı üretilmektedir. Bu atölyede 1 yılda (365 gün) toplam kaç çift ayakkabı üretilir?</p>
+                    <input type="text" id="exam3" placeholder="Örn: 35 770">
+                    <button class="btn" onclick="checkSimpleAnswer('exam3', '35 770', 'efb3', 'İpucu: 365 ile 98 sayısını çarpmalısın (365 × 100 işleminden 2 tane 365 çıkararak da bulabilirsin).')">Cevapla</button>
+                    <div class="feedback" id="efb3"></div>
+                </div>
+                <div class="exercise-item">
+                    <strong>Soru 4:</strong>
+                    <p>"0, 5 ve 8" rakamlarıyla oluşturulan 7 basamaklı şifrede her bölükteki rakamlar büyükten küçüğe sıralanıyor. Hangisi bu şifrelerden biridir?<br>
+                    <em>(A: 8 058 058 | B: 5 000 058 | C: 8 058 850 | D: 5 580 850)</em></p>
+                    <input type="text" id="exam4" placeholder="A, B, C veya D yazın...">
+                    <button class="btn" onclick="checkSimpleAnswer('exam4', 'C', 'efb4', 'İpucu: Bölükleri ayrı ayrı incele; 8, 5 ve 0 büyükten küçüğe 850 şeklinde sıralanır.')">Cevapla</button>
+                    <div class="feedback" id="efb4"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge">ÖDÜL KÖŞESİ</span>
+                <h2>🎓 Başarı Sertifikanı Oluştur</h2>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:15px;">
+                <input type="text" id="studentNameInput" placeholder="Adını ve Soyadını Buraya Yaz..." style="flex:1; min-width:250px; padding:12px; border-radius:10px; border:2px solid var(--primary); font-size:1.05rem;">
+                <button class="btn" onclick="generateCertificate()">Sertifikamı Hazırla ✨</button>
+                <button class="btn btn-outline" onclick="window.print()">🖨️ Yazdır / PDF Kaydet</button>
+            </div>
+
+            <div class="certificate" id="certificateBox">
+                <div style="font-size: 3rem;">🏅</div>
+                <h2>ÜSTÜN BAŞARI SERTİFİKASI</h2>
+                <p style="font-size: 1.1rem; color: #78350F;">5. Sınıf Matematik • Sayılar ve Nicelikler (1) • Yahya Öğretmen</p>
+                <div class="cert-name" id="certStudentName">DEĞERLİ ÖĞRENCİMİZ</div>
+                <p style="max-width: 680px; margin: 0 auto; font-size: 1.05rem;">
+                    <strong>"Doğal Sayılar ve İşlemler"</strong> ünitesindeki etkinlikleri tamamlamış, defter notlarını eksiksiz tutmuş ve 25 gerçek yaşam problemini başarıyla çözerek bu belgeyi almaya hak kazanmıştır.
+                </p>
+                <div style="margin-top: 25px; display: flex; justify-content: space-around; font-weight: 700; color: #92400E;">
+                    <div>Toplam Puan: <span id="certScore">0</span> ⭐</div>
+                    <div>Çözülen Problem: <span id="certProbs">0</span> / 25 🧩</div>
+                    <div>Defter Notu: <span id="certNotes">0</span> / 7 📓</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- KAZANAN EKRANI VE YERLEŞİK KONFETİ -->
+<canvas id="confettiCanvas"></canvas>
+<div class="victory-modal" id="victoryModal">
+    <div class="victory-title">🎉 TEBRİKLER! 🎉</div>
+    <div class="winner-team-name" id="winnerText">ŞAMPİYON: MAVİ GRUP</div>
+    <button class="btn btn-success" style="font-size:1.25rem; padding:15px 32px; border-radius:50px;" onclick="oyunuSifirlaVeYenidenBaslat()">🔄 Yeni Sorularla Yeniden Başlat</button>
+</div>
+
+<script>
+    // ==================== GENEL PUAN VE İLERLEME ====================
+    let totalScore = 0;
+    let completedNotes = new Set();
+    let solvedQuestions = new Set();
+    let solvedProblemsCount = 0;
+    let attemptTracker = {};
+
+    function addScore(points) {
+        totalScore += points;
+        document.getElementById('scoreDisplay').innerText = totalScore;
+        document.getElementById('certScore').innerText = totalScore;
+        let pct = Math.min(100, Math.round((totalScore / 600) * 100));
+        document.getElementById('progressBar').style.width = pct + '%';
+    }
+
+    function markNote(btn, noteId) {
+        if (completedNotes.has(noteId)) return;
+        completedNotes.add(noteId);
+        btn.classList.add('completed');
+        btn.innerHTML = "✅ Defterime Yazdım (Tamamlandı!)";
+        document.getElementById('notesDisplay').innerText = completedNotes.size;
+        document.getElementById('certNotes').innerText = completedNotes.size;
+        addScore(20);
+    }
+
+    function switchTab(tabId, btnElement) {
+        document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        btnElement.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ==================== 12 BASAMAKLI ABAKÜS ====================
+    const bolukConfig = [
+        { name: "MİLYARLAR BÖLÜĞÜ", cls: "boluk-milyar", beadColor: "#EF4444", places: ["Yüz Milyarlar", "On Milyarlar", "Milyarlar"] },
+        { name: "MİLYONLAR BÖLÜĞÜ", cls: "boluk-milyon", beadColor: "#3B82F6", places: ["Yüz Milyonlar", "On Milyonlar", "Milyonlar"] },
+        { name: "BİNLER BÖLÜĞÜ", cls: "boluk-binler", beadColor: "#10B981", places: ["Yüz Binler", "On Binler", "Binler"] },
+        { name: "BİRLER BÖLÜĞÜ", cls: "boluk-birler", beadColor: "#F59E0B", places: ["Yüzler", "Onlar", "Birler"] }
+    ];
+
+    function initAbacus() {
+        const grid = document.getElementById('abacusGrid');
+        let idx = 0;
+        bolukConfig.forEach(b => {
+            const group = document.createElement('div');
+            group.className = `boluk-group ${b.cls}`;
+            group.innerHTML = `<div class="boluk-title">${b.name}</div>`;
+            const row = document.createElement('div');
+            row.className = 'basamak-row';
+
+            b.places.forEach(place => {
+                const currentIdx = idx;
+                const cell = document.createElement('div');
+                cell.className = 'basamak-cell';
+                cell.innerHTML = `
+                    <div class="basamak-name">${place}<br>Basamağı</div>
+                    <input type="number" min="0" max="9" value="0" class="digit-input" id="digit_${currentIdx}" oninput="onDigitChange(${currentIdx}, '${b.beadColor}')">
+                    <div class="abacus-rod" id="rod_${currentIdx}"></div>
+                `;
+                row.appendChild(cell);
+                idx++;
+            });
+            group.appendChild(row);
+            grid.appendChild(group);
+        });
+        setAbacusNumber('000149597890');
+    }
+
+    function onDigitChange(idx, color) {
+        const input = document.getElementById(`digit_${idx}`);
+        let val = parseInt(input.value);
+        if (isNaN(val) || val < 0) val = 0;
+        if (val > 9) val = val % 10;
+        input.value = val;
+
+        const rod = document.getElementById(`rod_${idx}`);
+        rod.innerHTML = '';
+        for (let i = 0; i < val; i++) {
+            const bead = document.createElement('div');
+            bead.className = 'bead';
+            bead.style.backgroundColor = color;
+            rod.appendChild(bead);
+        }
+        updateReading();
+    }
+
+    function setAbacusNumber(twelveDigitStr) {
+        const padded = twelveDigitStr.padStart(12, '0');
+        let idx = 0;
+        bolukConfig.forEach(b => {
+            b.places.forEach(() => {
+                const input = document.getElementById(`digit_${idx}`);
+                input.value = padded[idx];
+                onDigitChange(idx, b.beadColor);
+                idx++;
+            });
+        });
+    }
+
+    const birler = ["", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"];
+    const onlar = ["", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"];
+
+    function readThreeDigits(num) {
+        if (num === 0) return "";
+        let y = Math.floor(num / 100);
+        let o = Math.floor((num % 100) / 10);
+        let b = num % 10;
+        let parts = [];
+        if (y === 1) parts.push("yüz");
+        else if (y > 1) parts.push(birler[y] + " yüz");
+        if (o > 0) parts.push(onlar[o]);
+        if (b > 0) parts.push(birler[b]);
+        return parts.join(" ");
+    }
+
+    function updateReading() {
+        let digits = [];
+        for (let i = 0; i < 12; i++) digits.push(parseInt(document.getElementById(`digit_${i}`).value) || 0);
+        const milyar = digits[0]*100 + digits[1]*10 + digits[2];
+        const milyon = digits[3]*100 + digits[4]*10 + digits[5];
+        const binler = digits[6]*100 + digits[7]*10 + digits[8];
+        const birlerGrp = digits[9]*100 + digits[10]*10 + digits[11];
+
+        if (milyar === 0 && milyon === 0 && binler === 0 && birlerGrp === 0) {
+            document.getElementById('liveReadingText').innerText = "Sıfır";
+            return;
+        }
+        let result = [];
+        if (milyar > 0) result.push(readThreeDigits(milyar) + " milyar");
+        if (milyon > 0) result.push(readThreeDigits(milyon) + " milyon");
+        if (binler > 0) result.push(binler === 1 ? "bin" : readThreeDigits(binler) + " bin");
+        if (birlerGrp > 0) result.push(readThreeDigits(birlerGrp));
+
+        let finalStr = result.join(" ");
+        document.getElementById('liveReadingText').innerText = finalStr.charAt(0).toUpperCase() + finalStr.slice(1);
+    }
+
+    function runDecomposer() {
+        const raw = document.getElementById('decomposeInput').value.replace(/\s+/g, '');
+        const resBox = document.getElementById('decomposerResult');
+        if (!raw || isNaN(raw) || raw.length > 12) {
+            resBox.style.display = 'block';
+            resBox.innerHTML = "⚠️ Lütfen en fazla 12 basamaklı geçerli bir doğal sayı giriniz.";
+            return;
+        }
+        let way1 = [], way2 = [];
+        const len = raw.length;
+        for (let i = 0; i < len; i++) {
+            const d = parseInt(raw[i]);
+            if (d !== 0) {
+                const power = Math.pow(10, len - 1 - i);
+                const val = d * power;
+                way1.push(`(${d} × ${power.toLocaleString('tr-TR').replace(/\./g, ' ')})`);
+                way2.push(val.toLocaleString('tr-TR').replace(/\./g, ' '));
+            }
+        }
+        resBox.style.display = 'block';
+        resBox.innerHTML = `
+            <p style="color:var(--primary-dark); margin-bottom:8px;"><strong>1. Yol:</strong> ${way1.join(' + ')}</p>
+            <p style="color:#047857;"><strong>2. Yol:</strong> ${way2.join(' + ')}</p>
+        `;
+    }
+
+    function normalize(str) {
+        return str.toString().replace(/\s+/g, '').replace(/\./g, '').replace(/:/g, '').toUpperCase().trim();
+    }
+
+    // DİĞER DURAKLARDA İPUCU TABANLI KONTROL (DOĞRUDAN CEVAP VERMEZ)
+    function checkSimpleAnswer(inputId, expected, feedbackId, hintText) {
+        const userVal = normalize(document.getElementById(inputId).value);
+        const expVal = normalize(expected);
+        const fb = document.getElementById(feedbackId);
+        if (!userVal) {
+            fb.className = "feedback err";
+            fb.innerText = "⚠️ Önce kendi cevabını yazmalısın!";
+            return;
+        }
+        if (userVal === expVal) {
+            fb.className = "feedback ok";
+            fb.innerText = "🎉 Tebrikler! Doğru sonuca ulaştın.";
+            if (!solvedQuestions.has(inputId)) {
+                solvedQuestions.add(inputId);
+                addScore(15);
+            }
+        } else {
+            fb.className = "feedback err";
+            fb.innerHTML = `💡 Henüz tam olmadı. <strong>${hintText}</strong>`;
+        }
+    }
+
+    // ==================== DERS KİTABINDAKİ 25 GERÇEK YAŞAM PROBLEMİ (ÖZGÜN GÖRSELLİ & İPUCU TABANLI) ====================
+    const textbookProblems = [
+        {
+            id: 1, group: "1-10", cat: "Toplama & Çıkarma • Problem 1",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <polygon points="10,105 45,35 80,105" fill="#94A3B8"/><text x="45" y="100" font-size="9" fill="white" text-anchor="middle" font-weight="bold">1411m</text>
+                    <polygon points="60,105 105,15 150,105" fill="#475569"/><text x="105" y="100" font-size="9" fill="white" text-anchor="middle" font-weight="bold">2185m</text>
+                    <polygon points="130,105 165,42 200,105" fill="#64748B"/><text x="165" y="100" font-size="9" fill="white" text-anchor="middle" font-weight="bold">1319m</text>
+                    <polygon points="180,105 215,48 250,105" fill="#334155"/><text x="215" y="100" font-size="9" fill="#FDE047" text-anchor="middle" font-weight="bold">? m</text>
+                  </svg><small style="color:#475569; font-weight:700;">5 Dağ Zirvesi (Toplam ≤ 7450 m)</small>`,
+            q: "Bir bölgede bulunan beş dağdan dördünün yükseklikleri sırasıyla <strong>1411 m, 2185 m, 1319 m ve 1277 m</strong>'dir. Bu beş dağın yükseklikleri toplamının <strong>7450 m'yi geçmediği</strong> bilindiğine göre 5. dağın yüksekliği <u>en fazla</u> kaç metredir?",
+            ans: "1258",
+            hint1: "1. İpucu: Önce yüksekliği bilinen dört dağın yüksekliklerini toplayarak toplam yüksekliği bulmalısın.",
+            hint2: "2. İpucu: Dört dağın toplamı 6192 m eder. 5. dağın en fazla olması için toplamı 7450 m kabul edip 6192 m'yi çıkar."
+        },
+        {
+            id: 2, group: "1-10", cat: "Bütçe & Tasarruf • Problem 2",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="20" y="20" width="95" height="65" rx="10" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+                    <text x="67" y="45" font-size="11" font-weight="bold" fill="#1E3A8A" text-anchor="middle">İlk 6 Ay</text>
+                    <text x="67" y="68" font-size="13" font-weight="bold" fill="#1D4ED8" text-anchor="middle">23 300 TL</text>
+                    <rect x="140" y="20" width="100" height="65" rx="10" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+                    <text x="190" y="45" font-size="11" font-weight="bold" fill="#92400E" text-anchor="middle">Yıl Sonu</text>
+                    <text x="190" y="68" font-size="13" font-weight="bold" fill="#B45309" text-anchor="middle">38 800 TL</text>
+                  </svg><small style="color:#475569; font-weight:700;">Her ay en az 2500 TL tasarruf</small>`,
+            q: "Ahmet 2024 yılının ilk 6 ayında <strong>23 300 TL</strong> para biriktirmiştir. Yıl sonunda toplam parası <strong>38 800 TL</strong> olmuştur. Yıl boyunca her ay <u>en az 2500 TL</u> biriktirdiğine göre kasım ayında <strong>en fazla</strong> kaç TL biriktirmiştir?",
+            ans: "3000",
+            hint1: "1. İpucu: Yıl sonu parasından (38 800 TL) ilk 6 ay birikimini (23 300 TL) çıkararak son 6 ayda toplam ne kadar biriktiğini bul.",
+            hint2: "2. İpucu: Son 6 ayda 15 500 TL birikmiş. Kasım dışındaki 5 ayda en az 5 × 2500 = 12 500 TL biriktiğine göre kalanı Kasım ayına aittir."
+        },
+        {
+            id: 3, group: "1-10", cat: "Temiz Enerji • Problem 3",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="15" y="25" width="70" height="60" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+                    <text x="50" y="48" font-size="10" font-weight="bold" text-anchor="middle">1. Türbin</text>
+                    <text x="50" y="68" font-size="12" font-weight="bold" fill="#15803D" text-anchor="middle">1732 Ev</text>
+                    <rect x="95" y="25" width="70" height="60" rx="8" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+                    <text x="130" y="48" font-size="10" font-weight="bold" text-anchor="middle">2. Türbin</text>
+                    <text x="130" y="68" font-size="12" font-weight="bold" fill="#0369A1" text-anchor="middle">1583 Ev</text>
+                    <rect x="175" y="25" width="70" height="60" rx="8" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+                    <text x="210" y="48" font-size="10" font-weight="bold" text-anchor="middle">3. Türbin</text>
+                    <text x="210" y="68" font-size="12" font-weight="bold" fill="#B45309" text-anchor="middle">875 Ev</text>
+                  </svg><small style="color:#475569; font-weight:700;">İlçedeki toplam hane sayısı: 2620</small>`,
+            q: "Üç rüzgâr türbini sırasıyla <strong>1732, 1583 ve 875</strong> evin elektrik ihtiyacını karşılamaktadır. <strong>2620 evin</strong> bulunduğu bir ilçede elektrik kesintisi yaşanmaması için en fazla iki türbin çalıştırılacaktır. 1. ve 2. türbin birlikte çalıştırılırsa <u>kaç evlik fazladan kapasite</u> oluşur?",
+            ans: "695",
+            hint1: "1. İpucu: 1. türbin (1732) ile 2. türbinin (1583) toplam kaç evin elektriğini karşıladığını hesapla.",
+            hint2: "2. İpucu: Bulduğun toplamdan (3315) ilçedeki ev sayısını (2620) çıkararak fazlalığı bulabilirsin."
+        },
+        {
+            id: 4, group: "1-10", cat: "Veri Analizi • Problem 4",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="25" y="65" width="35" height="30" fill="#93C5FD"/><text x="42" y="60" font-size="9" text-anchor="middle" font-weight="bold">4333</text><text x="42" y="106" font-size="9" text-anchor="middle">2018</text>
+                    <rect x="80" y="50" width="35" height="45" fill="#60A5FA"/><text x="97" y="45" font-size="9" text-anchor="middle" font-weight="bold">17373</text><text x="97" y="106" font-size="9" text-anchor="middle">2019</text>
+                    <rect x="135" y="42" width="35" height="53" fill="#3B82F6"/><text x="152" y="37" font-size="9" text-anchor="middle" font-weight="bold">20197</text><text x="152" y="106" font-size="9" text-anchor="middle">2020</text>
+                    <rect x="190" y="20" width="35" height="75" fill="#1D4ED8"/><text x="207" y="15" font-size="9" text-anchor="middle" font-weight="bold">44912</text><text x="207" y="106" font-size="9" text-anchor="middle">2021</text>
+                  </svg><small style="color:#475569; font-weight:700;">TEKNOFEST Başvuran Takım Sayıları</small>`,
+            q: "TEKNOFEST'e 2018 yılında <strong>4333</strong>, 2019 yılında <strong>17 373</strong>, 2020 yılında <strong>20 197</strong> ve 2021 yılında <strong>44 912</strong> takım başvurmuştur. Bu dört yılda yarışmaya başvuran <u>toplam takım sayısı</u> kaçtır?",
+            ans: "86 815",
+            hint1: "1. İpucu: Dört yılın tamamındaki takım sayılarını basamakları alt alta gelecek şekilde yazarak toplamalısın.",
+            hint2: "2. İpucu: Birler basamağından başla: 3 + 3 + 7 + 2 = 15 (elde var 1). Adım adım sola doğru ilerle."
+        },
+        {
+            id: 5, group: "1-10", cat: "Sayı Oluşturma • Problem 5",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <text x="10" y="25" font-size="11" font-weight="bold" fill="#1E3A8A">Ahmet'in Şeridi:</text>
+                    <rect x="10" y="32" width="235" height="26" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+                    <text x="127" y="50" font-size="13" font-weight="bold" text-anchor="middle" letter-spacing="4">7 8 0 6 1 3 4 9 2</text>
+                    <text x="10" y="78" font-size="11" font-weight="bold" fill="#991B1B">Akif'in Şeridi:</text>
+                    <rect x="10" y="85" width="235" height="26" rx="4" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+                    <text x="127" y="103" font-size="13" font-weight="bold" text-anchor="middle" letter-spacing="4">6 2 5 8 9 3 1 4 7</text>
+                  </svg><small style="color:#475569; font-weight:700;">Tek makas darbesiyle 5 ve 4 basamaklı iki parça</small>`,
+            q: "Ahmet ve Akif, 9 rakamlı şeritlerini <strong>bir makas darbesiyle</strong> (rakamların sırasını bozmadan) biri 4 basamaklı, diğeri 5 basamaklı iki parçaya ayırıyor. Akif'in elde ettiği 5 basamaklı sayı, Ahmet'in elde ettiği 5 basamaklı sayıdan <strong>en fazla kaç fazladır?</strong>",
+            ans: "31 798",
+            hint1: "1. İpucu: Farkın en fazla olması için Akif'in 5 basamaklı sayısını en büyük, Ahmet'in 5 basamaklı sayısını ise en küçük seçmelisin.",
+            hint2: "2. İpucu: Akif sağdan 5 rakamı keserse 93 147; Ahmet sağdan 5 rakamı keserse 61 349 elde eder. Şimdi aradaki farkı bul."
+        },
+        {
+            id: 6, group: "1-10", cat: "Alışveriş & Bütçe • Problem 6",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="10" y="12" width="115" height="42" rx="6" fill="#EFF6FF" stroke="#3B82F6"/><text x="67" y="29" font-size="10" font-weight="bold" text-anchor="middle">Ütü Seçenekleri</text><text x="67" y="45" font-size="10" text-anchor="middle">9750 TL / 11250 TL</text>
+                    <rect x="135" y="12" width="115" height="42" rx="6" fill="#FEF2F2" stroke="#EF4444"/><text x="192" y="29" font-size="10" font-weight="bold" text-anchor="middle">Robot Süpürge</text><text x="192" y="45" font-size="10" text-anchor="middle">15499 TL / 16999 TL</text>
+                    <rect x="45" y="62" width="170" height="42" rx="6" fill="#ECFDF5" stroke="#10B981"/><text x="130" y="79" font-size="10" font-weight="bold" text-anchor="middle">Kahve Makinesi</text><text x="130" y="95" font-size="10" text-anchor="middle">5550 TL / 4299 TL</text>
+                  </svg><small style="color:#475569; font-weight:700;">Toplam Bütçe: 30 000 TL</small>`,
+            q: "Nil Hanım görseldeki üç ürün grubunun her birinden birer tane alacaktır. Alışverişini <strong>en uygun fiyata</strong> mal ederse <strong>30 000 TL</strong> bütçesinden <u>kaç TL parası artar?</u>",
+            ans: "452",
+            hint1: "1. İpucu: Her gruptaki en düşük fiyatlı ürünleri seçip (9750, 15 499 ve 4299) toplam tutarı hesapla.",
+            hint2: "2. İpucu: En ucuz üç ürünün toplamı 29 548 TL tutar. 30 000 TL'den bu tutarı çıkararak artan parayı bul."
+        },
+        {
+            id: 7, group: "1-10", cat: "Sağlıklı Yaşam • Problem 7",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="20" y="20" width="220" height="75" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
+                    <text x="130" y="42" font-size="11" font-weight="bold" fill="#065F46" text-anchor="middle">👟 HAFTALIK ADIM TAKİBİ</text>
+                    <text x="130" y="62" font-size="10" fill="#1E293B" text-anchor="middle">1. Hafta: 34 850 | 2. Hafta: 45 920</text>
+                    <text x="130" y="80" font-size="10" font-weight="bold" fill="#B91C1C" text-anchor="middle">3. Hafta: 2. haftadan 6500 adım az</text>
+                  </svg><small style="color:#475569; font-weight:700;">Büşra Hanım'ın 3 Haftalık Yürüyüşü</small>`,
+            q: "Büşra Hanım 1. hafta <strong>34 850 adım</strong>, 2. hafta <strong>45 920 adım</strong> atmıştır. 3. hafta ise 2. haftadan <strong>6500 adım az</strong> yürümüştür. Büşra Hanım bu üç haftada <u>toplam kaç adım</u> atmıştır?",
+            ans: "120 190",
+            hint1: "1. İpucu: Önce 3. haftadaki adım sayısını bulmak için 45 920'den 6500 çıkarmalısın.",
+            hint2: "2. İpucu: 3. hafta 39 420 adım atmıştır. Şimdi 1, 2 ve 3. haftaların tamamını (34 850 + 45 920 + 39 420) topla."
+        },
+        {
+            id: 8, group: "1-10", cat: "Verilmeyen Terim • Problem 8",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="25" y="22" width="210" height="70" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="3"/>
+                    <text x="130" y="50" font-size="14" font-weight="bold" fill="#FDE047" text-anchor="middle">[ ? ] + 12 085 = 63 904</text>
+                    <text x="130" y="74" font-size="11" fill="#93C5FD" text-anchor="middle">Şifreli Kapıyı Açmak İçin Kutuyu Bul</text>
+                  </svg><small style="color:#475569; font-weight:700;">Toplama İşleminde Verilmeyen</small>`,
+            q: "Bir bilgisayar oyununda şifreli kapıyı açmak için <strong>[ ? ] + 12 085 = 63 904</strong> eşitliğindeki kutu yerine yazılması gereken doğal sayıyı bulmak gerekmektedir. Bu sayı kaçtır?",
+            ans: "51 819",
+            hint1: "1. İpucu: Toplama işleminde verilmeyen toplananı bulmak için toplamdan verilen toplanan çıkarılır.",
+            hint2: "2. İpucu: 63 904 sayısından 12 085 sayısını onluk bozarak dikkatlice çıkar."
+        },
+        {
+            id: 9, group: "1-10", cat: "Eksilen - Çıkan - Fark • Problem 9",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="15" y="18" width="110" height="80" rx="8" fill="#FEF2F2" stroke="#EF4444"/><text x="70" y="38" font-size="10" font-weight="bold" text-anchor="middle">Suzan'ın İşlemi</text><text x="70" y="56" font-size="10" text-anchor="middle">Çıkan: 6408</text><text x="70" y="74" font-size="10" text-anchor="middle">Fark: 68 805</text>
+                    <rect x="135" y="18" width="110" height="80" rx="8" fill="#EFF6FF" stroke="#3B82F6"/><text x="190" y="38" font-size="10" font-weight="bold" text-anchor="middle">Nazlı'nın İşlemi</text><text x="190" y="56" font-size="10" text-anchor="middle">Eksilen: 90 523</text><text x="190" y="74" font-size="10" text-anchor="middle">Fark: 57 641</text>
+                  </svg><small style="color:#475569; font-weight:700;">Çıkarma İşlemi Terimleri İlişkisi</small>`,
+            q: "Suzan'ın çıkarma işleminde <strong>çıkan 6408 ve fark 68 805</strong>'tir. Nazlı'nın çıkarma işleminde ise <strong>eksilen 90 523 ve fark 57 641</strong>'dir. Suzan'ın bulduğu <u>eksilen</u> sayı, Nazlı'nın bulduğu <u>çıkan</u> sayıdan kaç fazladır?",
+            ans: "42 331",
+            hint1: "1. İpucu: Eksilen = Çıkan + Fark (6408 + 68 805). Çıkan = Eksilen - Fark (90 523 - 57 641).",
+            hint2: "2. İpucu: Suzan'ın eksileni 75 213, Nazlı'nın çıkanı 32 882 çıkar. Şimdi 75 213'ten 32 882'yi çıkar."
+        },
+        {
+            id: 10, group: "1-10", cat: "Stadyum Seyircisi • Problem 10",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <ellipse cx="130" cy="58" rx="110" ry="42" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
+                    <rect x="75" y="38" width="110" height="40" fill="#15803D" stroke="white" stroke-width="2"/>
+                    <text x="130" y="55" font-size="10" fill="white" font-weight="bold" text-anchor="middle">3 Maç Toplamı</text>
+                    <text x="130" y="70" font-size="11" fill="#FDE047" font-weight="bold" text-anchor="middle">99 000 Seyirci</text>
+                  </svg><small style="color:#475569; font-weight:700;">1. Maç: 33 004 • 2. Maç: 35 670</small>`,
+            q: "Bir futbol takımının kendi sahasında oynadığı ilk üç maçta stadyuma gelen <strong>toplam seyirci sayısı 99 000</strong>'dir. İlk maçta <strong>33 004</strong>, ikinci maçta <strong>35 670</strong> seyirci geldiğine göre üçüncü maçta kaç seyirci gelmiştir?",
+            ans: "30 326",
+            hint1: "1. İpucu: İlk iki maçta stadyuma gelen toplam seyirci sayısını (33 004 + 35 670) hesapla.",
+            hint2: "2. İpucu: Toplam seyirci sayısından (99 000) ilk iki maçın toplamını (68 674) çıkar."
+        },
+
+        // 11-18
+        {
+            id: 11, group: "11-18", cat: "En Fazla Fidan • Problem 11",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="10" y="15" width="115" height="38" rx="6" fill="#FEF3C7" stroke="#D97706"/><text x="67" y="38" font-size="10" font-weight="bold" text-anchor="middle">🍑 Şeftali: 143 TL</text>
+                    <rect x="135" y="15" width="115" height="38" rx="6" fill="#F3E8FF" stroke="#9333EA"/><text x="192" y="38" font-size="10" font-weight="bold" text-anchor="middle">🍇 Üzüm: 95 TL</text>
+                    <rect x="10" y="62" width="115" height="38" rx="6" fill="#FEE2E2" stroke="#DC2626"/><text x="67" y="85" font-size="10" font-weight="bold" text-anchor="middle">🍎 Elma: 138 TL</text>
+                    <rect x="135" y="62" width="115" height="38" rx="6" fill="#DCFCE7" stroke="#16A34A"/><text x="192" y="85" font-size="10" font-weight="bold" text-anchor="middle">🍐 Armut: 73 TL</text>
+                  </svg><small style="color:#475569; font-weight:700;">Bütçe: 6500 TL • Her türden en az 10 adet</small>`,
+            q: "<strong>6500 TL</strong> parası olan Vahdettin Bey, görseldeki fidan türlerinin <strong>her birinden en az 10 adet</strong> satın alacaktır. Parasının tamamını veya tamamına yakınını kullanarak bahçesine <u>en fazla kaç fidan</u> dikebilir?",
+            ans: "67",
+            hint1: "1. İpucu: Önce 4 türden 10'ar adet (toplam 40 fidan) al: (143 + 95 + 138 + 73) × 10 = 4490 TL harcanır.",
+            hint2: "2. İpucu: Kalan 2010 TL ile en fazla fidan almak için en ucuz fidanı (Armut: 73 TL) seçmelisin: 2010 ÷ 73 kaç eder?"
+        },
+        {
+            id: 12, group: "11-18", cat: "Kısa Yoldan Çarpma • Problem 12",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="12" y="22" width="74" height="70" rx="8" fill="#EFF6FF" stroke="#3B82F6"/><text x="49" y="45" font-size="10" font-weight="bold" text-anchor="middle">10'lu Paket</text><text x="49" y="68" font-size="11" font-weight="bold" fill="#1D4ED8" text-anchor="middle">Tanesi 32₺</text>
+                    <rect x="93" y="22" width="74" height="70" rx="8" fill="#ECFDF5" stroke="#10B981"/><text x="130" y="45" font-size="10" font-weight="bold" text-anchor="middle">100'lü Paket</text><text x="130" y="68" font-size="11" font-weight="bold" fill="#047857" text-anchor="middle">Tanesi 24₺</text>
+                    <rect x="174" y="22" width="74" height="70" rx="8" fill="#FEF3C7" stroke="#F59E0B"/><text x="211" y="45" font-size="10" font-weight="bold" text-anchor="middle">1000'li Paket</text><text x="211" y="68" font-size="11" font-weight="bold" fill="#B45309" text-anchor="middle">Tanesi 19₺</text>
+                  </svg><small style="color:#475569; font-weight:700;">Toptan Çorap Fabrikası Fiyat Tarifesi</small>`,
+            q: "Bir çorap fabrikası 10'lu alımda tanesini <strong>32 TL</strong>, 100'lü alımda tanesini <strong>24 TL</strong>, 1000'li alımda tanesini <strong>19 TL</strong>'den satmaktadır. Ziya Bey 10, Zeynep Hanım 100, Ahmet Bey 1000 çorap alırsa <u>üçü toplam kaç TL</u> öderler?",
+            ans: "21 720",
+            hint1: "1. İpucu: Kısa yoldan 10, 100 ve 1000 ile çarpma kuralını kullan: 10×32, 100×24 ve 1000×19.",
+            hint2: "2. İpucu: 320 TL + 2400 TL + 19 000 TL işlemlerini basamaklarına dikkat ederek topla."
+        },
+        {
+            id: 13, group: "11-18", cat: "Yıllık Üretim • Problem 13",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="25" y="20" width="210" height="75" rx="12" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+                    <text x="130" y="46" font-size="12" font-weight="bold" fill="#0F172A" text-anchor="middle">👟 GÜNLÜK ÜRETİM: 98 ÇİFT</text>
+                    <text x="130" y="72" font-size="12" font-weight="bold" fill="#4F46E5" text-anchor="middle">1 YIL = 365 GÜN</text>
+                  </svg><small style="color:#475569; font-weight:700;">Ayakkabı Atölyesi Yıllık Kapasitesi</small>`,
+            q: "Bir ayakkabı atölyesinde günde <strong>98 çift</strong> ayakkabı üretilmektedir. Bu atölyede <strong>1 yılda (365 gün)</strong> toplam kaç çift ayakkabı üretilir?",
+            ans: "35 770",
+            hint1: "1. İpucu: 365 gün boyunca her gün 98 çift üretildiği için 365 ile 98 sayısını çarpmalısın.",
+            hint2: "2. İpucu: Pratik yol: 365 × 100 = 36 500 sonucundan 2 günlük üretimi (365 × 2 = 730) çıkarabilirsin!"
+        },
+        {
+            id: 14, group: "11-18", cat: "Fidan Dikimi • Problem 14",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="15" y="22" width="110" height="70" rx="8" fill="#DCFCE7" stroke="#16A34A"/><text x="70" y="45" font-size="10" font-weight="bold" text-anchor="middle">🌲 175 Çam Ağacı</text><text x="70" y="68" font-size="11" font-weight="bold" fill="#15803D" text-anchor="middle">Tanesi 209 TL</text>
+                    <rect x="135" y="22" width="110" height="70" rx="8" fill="#FEE2E2" stroke="#DC2626"/><text x="190" y="45" font-size="10" font-weight="bold" text-anchor="middle">🍎 30 Elma Fidanı</text><text x="190" y="68" font-size="11" font-weight="bold" fill="#B91C1C" text-anchor="middle">Tanesi 315 TL</text>
+                  </svg><small style="color:#475569; font-weight:700;">Okul Bahçesi Ağaçlandırma Projesi</small>`,
+            q: "Bir okulun bahçesine tanesi <strong>209 TL</strong> olan çam ağaçlarından <strong>175 adet</strong>, tanesi <strong>315 TL</strong> olan elma fidanlarından <strong>30 adet</strong> dikilecektir. Bu iş için <u>toplam kaç TL</u> ödenmelidir?",
+            ans: "46 025",
+            hint1: "1. İpucu: Çam ağaçlarının tutarı için 175 × 209; elma fidanlarının tutarı için 30 × 315 işlemlerini ayrı ayrı yap.",
+            hint2: "2. İpucu: Çam ağaçları 36 575 TL, elma fidanları 9450 TL tutar. İkisini toplayarak sonuca ulaş."
+        },
+        {
+            id: 15, group: "11-18", cat: "Zeytin Hasadı • Problem 15",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="15" y="20" width="230" height="75" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
+                    <text x="130" y="40" font-size="11" font-weight="bold" fill="#065F46" text-anchor="middle">🫒 TOPLAM 150 ZEYTİN AĞACI</text>
+                    <text x="130" y="60" font-size="10" fill="#1E293B" text-anchor="middle">115 Ağaç → Her birinden 40 kg</text>
+                    <text x="130" y="78" font-size="10" fill="#1E293B" text-anchor="middle">Kalan Ağaçlar → Her birinden 35 kg</text>
+                  </svg><small style="color:#475569; font-weight:700;">Tarladan Toplanan Toplam Ürün</small>`,
+            q: "<strong>150 zeytin ağacının</strong> bulunduğu bir bahçede ağaçların <strong>115 tanesinin</strong> her birinden ortalama <strong>40 kg</strong>, <u>kalan ağaçların</u> her birinden ise ortalama <strong>35 kg</strong> zeytin toplanmıştır. Bu bahçeden toplam kaç kg zeytin elde edilmiştir?",
+            ans: "5825",
+            hint1: "1. İpucu: Önce 150 ağaçtan 115 ağacı çıkararak 35 kg ürün veren kalan ağaç sayısını (35 ağaç) bul.",
+            hint2: "2. İpucu: (115 × 40) ile (35 × 35) çarpımlarının sonuçlarını topla."
+        },
+        {
+            id: 16, group: "11-18", cat: "Takvim & Zamlı Tarife • Problem 16",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="20" y="15" width="220" height="85" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+                    <text x="130" y="34" font-size="11" font-weight="bold" fill="#1E3A8A" text-anchor="middle">📅 ŞUBAT AYI SU SİPARİŞLERİ</text>
+                    <text x="130" y="54" font-size="10" fill="#047857" font-weight="bold" text-anchor="middle">1, 6, 11 Şubat → Damacana 80 TL</text>
+                    <text x="130" y="72" font-size="10" fill="#DC2626" font-weight="bold" text-anchor="middle">15 Şubat'ta Zam Geldi! (85 TL)</text>
+                    <text x="130" y="90" font-size="10" fill="#1D4ED8" font-weight="bold" text-anchor="middle">16, 21, 26 Şubat → Damacana 85 TL</text>
+                  </svg><small style="color:#475569; font-weight:700;">5 Günde Bir Damacana Siparişi</small>`,
+            q: "Hüseyin Bey, Şubat ayında <strong>5 günde bir</strong> damacana su siparişi vermektedir (1, 6, 11, 16, 21 ve 26 Şubat). Bir damacana suyun fiyatı <strong>80 TL</strong> iken 15 Şubat'ta zamlanarak <strong>85 TL</strong> olmuştur. Hüseyin Bey Şubat ayında sulara <u>toplam kaç TL</u> ödemiştir?",
+            ans: "495",
+            hint1: "1. İpucu: 15 Şubat'tan önceki 3 siparişi (1, 6, 11 Şubat) 80 TL'den; sonraki 3 siparişi (16, 21, 26 Şubat) 85 TL'den hesapla.",
+            hint2: "2. İpucu: (3 × 80) + (3 × 85) işleminin sonucunu bularak toplam ödemeyi hesapla."
+        },
+        {
+            id: 17, group: "11-18", cat: "Okuma Maratonu • Problem 17",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="15" y="20" width="110" height="75" rx="8" fill="#DBEAFE" stroke="#2563EB"/><text x="70" y="42" font-size="10" font-weight="bold" text-anchor="middle">📘 Burak'ın Kitabı</text><text x="70" y="60" font-size="10" text-anchor="middle">1120 Sayfa</text><text x="70" y="78" font-size="10" font-weight="bold" fill="#1D4ED8" text-anchor="middle">Günde 35 Sayfa</text>
+                    <rect x="135" y="20" width="110" height="75" rx="8" fill="#FCE7F3" stroke="#DB2777"/><text x="190" y="42" font-size="10" font-weight="bold" text-anchor="middle">📕 Merve'nin Kitabı</text><text x="190" y="60" font-size="10" text-anchor="middle">945 Sayfa</text><text x="190" y="78" font-size="10" font-weight="bold" fill="#BE185D" text-anchor="middle">Günde 27 Sayfa</text>
+                  </svg><small style="color:#475569; font-weight:700;">Aynı Gün Okumaya Başlıyorlar</small>`,
+            q: "Aynı gün kitap okumaya başlayan iki kardeşten Burak <strong>1120 sayfalık</strong> kitabını her gün <strong>35 sayfa</strong> okuyarak, Merve ise <strong>945 sayfalık</strong> kitabını her gün <strong>27 sayfa</strong> okuyarak bitirmiştir. Kitabını <u>ilk bitiren kişi kaç günde</u> bitirmiştir?",
+            ans: "32",
+            hint1: "1. İpucu: Burak'ın bitirme süresi için 1120 ÷ 35; Merve'nin bitirme süresi için 945 ÷ 27 bölme işlemlerini yap.",
+            hint2: "2. İpucu: İki bölme sonucunu karşılaştır ve gün sayısı daha küçük olanı yaz."
+        },
+        {
+            id: 18, group: "11-18", cat: "Süt Çiftliği • Problem 18",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="15" y="15" width="230" height="85" rx="10" fill="#F8FAFC" stroke="#0284C7" stroke-width="2"/>
+                    <text x="130" y="35" font-size="11" font-weight="bold" fill="#0369A1" text-anchor="middle">🥛 GÜNLÜK SÜT SAĞIM MİKTARLARI</text>
+                    <text x="130" y="55" font-size="10" fill="#1E293B" text-anchor="middle">Ahmet: 30 L  •  Havva: 38 L</text>
+                    <text x="130" y="72" font-size="10" fill="#1E293B" text-anchor="middle">Mustafa: 32 L  •  Zeynep: 28 L</text>
+                    <text x="130" y="90" font-size="10" font-weight="bold" fill="#DC2626" text-anchor="middle">Hedef: 5760 Litre Süt</text>
+                  </svg><small style="color:#475569; font-weight:700;">Dört Kişinin Ortak Çalışması</small>`,
+            q: "Bir çiftlikte Ahmet günde <strong>30 L</strong>, Havva <strong>38 L</strong>, Mustafa <strong>32 L</strong> ve Zeynep <strong>28 L</strong> süt sağmaktadır. Süt toplama merkezinin <strong>5760 litre</strong> süt ihtiyacını <u>dördü birlikte çalışarak kaç günde</u> tamamlarlar?",
+            ans: "45",
+            hint1: "1. İpucu: Önce dört kişinin 1 günde birlikte sağdıkları toplam süt miktarını (30 + 38 + 32 + 28) bul.",
+            hint2: "2. İpucu: Toplam ihtiyaç olan 5760 litreyi, bulduğun 1 günlük toplam süt miktarına (128 L) böl."
+        },
+
+        // 19-25
+        {
+            id: 19, group: "19-25", cat: "Kalanı Yorumlama • Problem 19",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <line x1="20" y1="20" x2="240" y2="55" stroke="#475569" stroke-width="3"/>
+                    <rect x="95" y="42" width="70" height="48" rx="8" fill="#EF4444" stroke="#991B1B" stroke-width="2"/>
+                    <text x="130" y="62" font-size="10" fill="white" font-weight="bold" text-anchor="middle">TELEFERİK</text>
+                    <text x="130" y="78" font-size="10" fill="#FDE047" font-weight="bold" text-anchor="middle">Max: 11 Kişi</text>
+                  </svg><small style="color:#475569; font-weight:700;">Toplam 250 Öğrenci Dağa Çıkacak</small>`,
+            q: "<strong>250 öğrenciden</strong> oluşan bir okul grubu teleferikle Uludağ'a çıkacaktır. Her seferinde <strong>en fazla 11 kişi</strong> taşıyabilen teleferik, <u>tüm öğrencileri</u> dağa çıkarmak için <strong>en az kaç sefer</strong> yapmalıdır?",
+            ans: "23",
+            hint1: "1. İpucu: 250 sayısını 11'e böldüğünde bölüm kaç çıkıyor ve geriye kaç öğrenci artıyor?",
+            hint2: "2. İpucu: 22 tam seferde 242 öğrenci çıkar, geriye 8 öğrenci kalır. Onları da çıkarmak için 1 sefer daha eklemelisin!"
+        },
+        {
+            id: 20, group: "19-25", cat: "Kalanı Yorumlama • Problem 20",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="25" y="20" width="210" height="75" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="2"/>
+                    <text x="130" y="45" font-size="12" font-weight="bold" fill="#92400E" text-anchor="middle">🥖 SAATTE 80 EKMEK ÜRETİMİ</text>
+                    <text x="130" y="72" font-size="12" font-weight="bold" fill="#B45309" text-anchor="middle">Hedef: 9640 Ekmek</text>
+                  </svg><small style="color:#475569; font-weight:700;">Ekmek Fırını Üretim Süresi</small>`,
+            q: "Bir ekmek fırını <strong>1 saatte 80 ekmek</strong> üretmektedir. Üretime başlayan bu fırın <u>kaçıncı saatte</u> <strong>9640 ekmeği</strong> üretmiş olur?",
+            ans: "121",
+            hint1: "1. İpucu: 9640 ÷ 80 işlemini kısa yoldan birer sıfır silerek (964 ÷ 8) yap.",
+            hint2: "2. İpucu: 120 saat sonunda 9600 ekmek üretilir, kalan 40 ekmek bir sonraki saat diliminin içinde üretilir."
+        },
+        {
+            id: 21, group: "19-25", cat: "Mürekkep Ömrü • Problem 21",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="25" y="20" width="210" height="75" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+                    <text x="130" y="45" font-size="11" font-weight="bold" fill="#0F172A" text-anchor="middle">🖨️ YAZICI KAPASİTESİ: 5000 BASKI</text>
+                    <text x="130" y="70" font-size="11" font-weight="bold" fill="#DC2626" text-anchor="middle">Günlük Kullanım: 27 Baskı</text>
+                  </svg><small style="color:#475569; font-weight:700;">Mürekkep Tamamen Ne Zaman Biter?</small>`,
+            q: "Mürekkebi tam doluyken <strong>5000 baskı</strong> yapabilen bir yazıcıda her gün <strong>27 baskı</strong> yapılırsa <u>kaçıncı günün sonunda</u> mürekkebi tamamen biter?",
+            ans: "186",
+            hint1: "1. İpucu: 5000 sayısını 27'ye bölerek kaç tam gün baskı yapıldığını ve kaç baskılık mürekkep kaldığını bul.",
+            hint2: "2. İpucu: 185 tam gün geçtikten sonra kalan 5 baskılık mürekkep 186. günde tükenir."
+        },
+        {
+            id: 22, group: "19-25", cat: "Zaman & Mola • Problem 22",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="15" y="15" width="230" height="85" rx="10" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+                    <text x="130" y="34" font-size="11" font-weight="bold" fill="#1E3A8A" text-anchor="middle">⏰ BAŞLANGIÇ SAATİ: 18.00</text>
+                    <text x="130" y="54" font-size="10" fill="#1E293B" text-anchor="middle">Türkçe (50 dk) → 15 dk Mola</text>
+                    <text x="130" y="71" font-size="10" fill="#1E293B" text-anchor="middle">Matematik (50 dk) → 15 dk Mola</text>
+                    <text x="130" y="88" font-size="10" font-weight="bold" fill="#15803D" text-anchor="middle">Fen Bilimleri (40 dk) → BİTİŞ</text>
+                  </svg><small style="color:#475569; font-weight:700;">3 Ders Arasında Kaç Mola Vardır?</small>`,
+            q: "Saat <strong>18.00'de</strong> ders çalışmaya başlayan İnci; Türkçe <strong>50 dk</strong>, Matematik <strong>50 dk</strong> ve Fen Bilimleri <strong>40 dk</strong> çalışmıştır. Her iki ders arasında <strong>15 dakika mola</strong> verdiğine göre İnci ders çalışmayı <u>saat kaçta</u> bitirmiştir? (Örn: 20.50)",
+            ans: "20.50",
+            hint1: "1. İpucu: Dikkat! 3 ders arasında 3 mola değil, 2 mola (2 × 15 = 30 dk) vardır.",
+            hint2: "2. İpucu: Toplam süre: 50 + 50 + 40 + 30 = 170 dakika eder. 170 dakikayı saat ve dakikaya çevirip 18.00'e ekle."
+        },
+        {
+            id: 23, group: "19-25", cat: "Tiyatro Süresi • Problem 23",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="15" y="20" width="110" height="75" rx="8" fill="#FEF3C7" stroke="#D97706"/><text x="70" y="42" font-size="10" font-weight="bold" text-anchor="middle">🎭 1. Bölüm</text><text x="70" y="65" font-size="11" font-weight="bold" fill="#B45309" text-anchor="middle">12.35 - 13.28</text>
+                    <rect x="135" y="20" width="110" height="75" rx="8" fill="#E0E7FF" stroke="#4F46E5"/><text x="190" y="42" font-size="10" font-weight="bold" text-anchor="middle">🎭 2. Bölüm</text><text x="190" y="65" font-size="11" font-weight="bold" fill="#3730A3" text-anchor="middle">13.40 - 14.30</text>
+                  </svg><small style="color:#475569; font-weight:700;">Küçük Prens Tiyatro Oyunu</small>`,
+            q: "Eda ve Ece'nin izlediği 'Küçük Prens' tiyatro oyununun ilk bölümü <strong>12.35'te başlayıp 13.28'de</strong>, ikinci bölümü <strong>13.40'ta başlayıp 14.30'da</strong> bitmiştir. Ara süresi hariç tiyatro oyunu <u>toplam kaç dakika</u> sürmüştür?",
+            ans: "103",
+            hint1: "1. İpucu: 1. bölüm için 13.28'den 12.35'i çıkar (1 saat bozup 60 dakika ekleyerek 12.88 - 12.35 yapabilirsin).",
+            hint2: "2. İpucu: 1. bölüm 53 dakika, 2. bölüm ise 50 dakika sürmüştür. İkisini topla."
+        },
+        {
+            id: 24, group: "19-25", cat: "Takvim & Yaş • Problem 24",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="20" y="20" width="220" height="75" rx="10" fill="#ECFDF5" stroke="#10B981" stroke-width="2"/>
+                    <text x="130" y="45" font-size="11" font-weight="bold" fill="#065F46" text-anchor="middle">🏥 KONTROL TARİHİ: 20.03.2024</text>
+                    <text x="130" y="70" font-size="11" font-weight="bold" fill="#047857" text-anchor="middle">Yaşı: 1 Yıl 4 Ay 18 Gün</text>
+                  </svg><small style="color:#475569; font-weight:700;">Doğum Yılını Hesaplama</small>`,
+            q: "Can, kardeşini <strong>20 Mart 2024</strong> günü sağlık kontrolüne götürdüğünde formda yaşının <strong>'1 yıl 4 ay 18 gün'</strong> olduğunu görmüştür. Buna göre Can'ın kardeşi <u>hangi yıl</u> doğmuştur?",
+            ans: "2022",
+            hint1: "1. İpucu: 20.03.2024 tarihinden 1 yıl 4 ay 18 gün geriye gitmelisin.",
+            hint2: "2. İpucu: 3. aydan (Mart) 4 ay çıkmayacağı için 2024 yılından 1 yıl (12 ay) bozmalısın; yıl 2023'e düşer, 1 yıl daha çıkarınca hangi yıl olur?"
+        },
+        {
+            id: 25, group: "19-25", cat: "Tasarruf Planı • Problem 25",
+            svg: `<svg viewBox="0 0 260 115" width="100%" height="110">
+                    <rect x="25" y="20" width="210" height="75" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="2"/>
+                    <text x="130" y="45" font-size="12" font-weight="bold" fill="#3730A3" text-anchor="middle">🚲 BİSİKLET FİYATI: 2760 TL</text>
+                    <text x="130" y="72" font-size="11" font-weight="bold" fill="#1D4ED8" text-anchor="middle">Hedef Süre: 1 Yıl (12 Ay)</text>
+                  </svg><small style="color:#475569; font-weight:700;">Aylık Eşit Taksitle Birikim</small>`,
+            q: "Fiyatı <strong>2760 TL</strong> olan bir bisikleti <strong>1 yıl (12 ay)</strong> sonunda satın alabilmek için her ay eşit miktarda <u>kaç TL</u> biriktirmek gerekir?",
+            ans: "230",
+            hint1: "1. İpucu: 1 yıl 12 aydır. Toplam fiyatı (2760 TL) 12 eşit parçaya bölmelisin.",
+            hint2: "2. İpucu: 2760 ÷ 12 işlemini yaparken 27'nin içinde 12 iki kez var (24), kalan 36'nın içinde 12 üç kez var..."
+        }
+    ];
+
+    function renderProblems(filterGroup = 'ALL') {
+        const container = document.getElementById('problemsContainer');
+        container.innerHTML = '';
+
+        const filtered = filterGroup === 'ALL' ? textbookProblems : textbookProblems.filter(p => p.group === filterGroup);
+
+        filtered.forEach(p => {
+            const isSolved = solvedQuestions.has(`prob_in_${p.id}`);
+            const card = document.createElement('div');
+            card.className = `prob-card ${isSolved ? 'solved' : ''}`;
+            card.id = `prob_card_${p.id}`;
+
+            card.innerHTML = `
+                <div class="prob-top">
+                    <span class="prob-num">Problem ${p.id}</span>
+                    <span class="prob-cat">${p.cat}</span>
+                </div>
+                <div class="prob-grid">
+                    <div class="prob-visual">${p.svg}</div>
+                    <div>
+                        <div class="prob-text">${p.q}</div>
+                        <div class="prob-controls">
+                            <input type="text" id="prob_in_${p.id}" placeholder="Cevabınızı yazın..." value="${isSolved ? p.ans : ''}">
+                            <button class="btn" onclick="checkProblemWithHint(${p.id})">Kontrol Et</button>
+                            <button class="btn btn-hint" onclick="showProgressiveHint(${p.id})">💡 İpucu Al</button>
+                        </div>
+                        <div class="feedback ${isSolved ? 'ok' : ''}" id="prob_fb_${p.id}">${isSolved ? '🎉 Tebrikler! Doğru çözdün.' : ''}</div>
+                        <div class="hint-drawer" id="prob_hint_${p.id}"></div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function filterProblems(group, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderProblems(group);
+    }
+
+    function showProgressiveHint(id) {
+        const p = textbookProblems.find(item => item.id === id);
+        const drawer = document.getElementById(`prob_hint_${id}`);
+        if (!attemptTracker[id]) attemptTracker[id] = 0;
+        attemptTracker[id]++;
+
+        drawer.classList.add('visible');
+        if (attemptTracker[id] === 1) {
+            drawer.innerHTML = `<strong>${p.hint1}</strong>`;
+        } else {
+            drawer.innerHTML = `<strong>${p.hint1}</strong><br><br><strong>${p.hint2}</strong>`;
+        }
+    }
+
+    function checkProblemWithHint(id) {
+        const p = textbookProblems.find(item => item.id === id);
+        const inputId = `prob_in_${id}`;
+        const userVal = normalize(document.getElementById(inputId).value);
+        const expVal = normalize(p.ans);
+        const fb = document.getElementById(`prob_fb_${id}`);
+
+        if (!userVal) {
+            fb.className = "feedback err";
+            fb.innerText = "⚠️ Önce kendi cevabını yazmalısın!";
+            return;
+        }
+
+        if (userVal === expVal) {
+            fb.className = "feedback ok";
+            fb.innerText = "🎉 Harika! Kendi çabanla doğru sonuca ulaştın.";
+            if (!solvedQuestions.has(inputId)) {
+                solvedQuestions.add(inputId);
+                solvedProblemsCount++;
+                document.getElementById('probSolvedDisplay').innerText = solvedProblemsCount;
+                document.getElementById('certProbs').innerText = solvedProblemsCount;
+                document.getElementById(`prob_card_${id}`).classList.add('solved');
+                addScore(20);
+            }
+        } else {
+            if (!attemptTracker[id]) attemptTracker[id] = 0;
+            attemptTracker[id]++;
+            fb.className = "feedback err";
+            if (attemptTracker[id] === 1) {
+                fb.innerHTML = `❌ Henüz doğru değil. <strong>${p.hint1}</strong>`;
+            } else {
+                fb.innerHTML = `❌ Tekrar deneyelim! <strong>${p.hint2}</strong>`;
+            }
+        }
+    }
+
+    // ==================== 1-2-3-4 KİŞİLİK BAĞIMSIZ KULVARLI YARIŞMA ARENASI (12 SORU) ====================
+    const tumGrupBilgileri = [
+        { ad: "🔵 MAVİ KULVAR", cls: "team-blue" },
+        { ad: "🔴 KIRMIZI KULVAR", cls: "team-red" },
+        { ad: "🟢 YEŞİL KULVAR", cls: "team-green" },
+        { ad: "🟡 SARI KULVAR", cls: "team-yellow" }
+    ];
+
+    let aktifOyuncuSayisi = 4;
+    let istasyonlar = [];
+    let grupSoruIndeksi = [0, 0, 0, 0];
+    let puanlar = [0, 0, 0, 0];
+    let dogruSayisi = [0, 0, 0, 0];
+    let bitisSuresi = [0, 0, 0, 0];
+    let grupBitirdiMi = [false, false, false, false];
+    let bitirenSira = 0;
+
+    let globalStartTime = 0;
+    let globalElapsed = 0;
+    let timerRef = null;
+    let yarisBasladiMi = false;
+    let confettiAnimId = null;
+
+    function fmtNum(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+
+    function setPlayerCount(count) {
+        aktifOyuncuSayisi = count;
+        for (let c = 1; c <= 4; c++) {
+            const btn = document.getElementById(`pc-${c}`);
+            if (btn) btn.classList.toggle('active', c === count);
+        }
+        oyunuSifirlaVeYenidenBaslat();
+    }
+
+    function buildArenaSlots() {
+        const grid = document.getElementById('arenaBoardGrid');
+        grid.className = `board-grid cols-${aktifOyuncuSayisi}`;
+        grid.innerHTML = '';
+
+        for (let i = 0; i < aktifOyuncuSayisi; i++) {
+            const g = tumGrupBilgileri[i];
+            const titleText = aktifOyuncuSayisi === 1 ? "🧑‍🎓 BİREYSEL YARIŞMACI" : g.ad;
+            const box = document.createElement('div');
+            box.className = `team-box ${g.cls}`;
+            box.innerHTML = `
+                <div class="team-header">
+                    <span class="team-title">${titleText}</span>
+                    <span class="score-badge" id="score-${i}">0 Puan</span>
+                </div>
+                <div class="question-area" id="qarea-${i}">
+                    <span class="station-name" id="st-${i}">1 / 12. SORU</span>
+                    <div class="q-text" id="q-${i}">Hazır...</div>
+                    <div class="answers-grid" id="ans-${i}"></div>
+                </div>
+                <div class="timer-bar">
+                    <span class="time-text" id="prog-${i}">İlerleme: 0 / 12</span>
+                    <span class="status-tag status-waiting" id="status-${i}">Başlamayı Bekliyor</span>
+                </div>
+            `;
+            grid.appendChild(box);
+        }
+    }
+
+    function toggleFullscreen() {
+        document.getElementById('arenaContainer').classList.toggle('fullscreen-mode');
+    }
+
+    // HER GRUBA AYNI SORU TİPİ VE ZORLUKTA, FAKAT FARKLI SAYILAR VE FARKLI CEVAPLAR ÜRETEN MOTOR (12 SORU)
+    function rastgeleSorulariUret() {
+        // 1. SORU: Milyonlar Bölüğü ile Birler Bölüğü Farkı
+        let st1 = [];
+        for (let i = 0; i < 4; i++) {
+            let birler = Math.floor(Math.random() * 250) + 110 + (i * 37);
+            let fark = Math.floor(Math.random() * 350) + 280 + (i * 53);
+            let milyonlar = birler + fark;
+            let binler = Math.floor(Math.random() * 700) + 120;
+            st1.push({
+                q: `${milyonlar} ${binler} ${birler} sayısının Milyonlar Bölüğü ile Birler Bölüğü farkı kaçtır?`,
+                a: [`${fark}`, `${fark + 100}`, `${fark - 50}`, `${fark + 20}`],
+                correct: 0
+            });
+        }
+
+        // 2. SORU: Basamak Değeri Bulma
+        const st2Templates = [
+            { r: 7, s: "47 812 905", d: "7 000 000", y: ["70 000 000", "700 000", "70 000"] },
+            { r: 6, s: "62 340 118", d: "60 000 000", y: ["6 000 000", "600 000 000", "600 000"] },
+            { r: 8, s: "5 814 290", d: "800 000", y: ["8 000 000", "80 000", "8 000"] },
+            { r: 9, s: "9 102 450 000", d: "9 000 000 000", y: ["900 000 000", "90 000 000 000", "90 000 000"] }
+        ];
+        let st2 = st2Templates.map(item => ({
+            q: `${item.s} doğal sayısındaki "${item.r}" rakamının basamak değeri kaçtır?`,
+            a: [item.d, ...item.y],
+            correct: 0
+        }));
+
+        // 3. SORU: Verilen Bölüklerden Sayı Oluşturma
+        const st3Templates = [
+            { m: 4, mi: 18, bi: 5, br: 42, d: "4 018 005 042", y: ["4 180 500 420", "4 018 050 042", "4 18 5 42"] },
+            { m: 7, mi: 9, bi: 64, br: 3, d: "7 009 064 003", y: ["7 090 640 030", "7 009 640 003", "7 900 064 003"] },
+            { m: 12, mi: 50, bi: 8, br: 19, d: "12 050 008 019", y: ["12 500 080 190", "12 050 008 190", "12 005 008 019"] },
+            { m: 9, mi: 104, bi: 2, br: 70, d: "9 104 002 070", y: ["9 104 020 070", "9 140 002 700", "9 104 200 070"] }
+        ];
+        let st3 = st3Templates.map(item => ({
+            q: `Milyarlar: ${item.m}, Milyonlar: ${item.mi}, Binler: ${item.bi}, Birler: ${item.br} olan sayı hangisidir?`,
+            a: [item.d, ...item.y],
+            correct: 0
+        }));
+
+        // 4. SORU: Doğal Sayılarda Karşılaştırma ve En Büyük Sayıyı Bulma
+        const st4Templates = [
+            { list: "45 890 120 • 45 908 120 • 45 809 999 • 45 900 890", d: "45 908 120", y: ["45 890 120", "45 809 999", "45 900 890"] },
+            { list: "72 304 510 • 72 340 150 • 72 043 900 • 72 340 105", d: "72 340 150", y: ["72 304 510", "72 043 900", "72 340 105"] },
+            { list: "108 650 400 • 108 560 900 • 108 654 000 • 108 605 400", d: "108 654 000", y: ["108 650 400", "108 560 900", "108 605 400"] },
+            { list: "9 412 800 • 9 421 008 • 9 420 999 • 9 419 888", d: "9 421 008", y: ["9 412 800", "9 420 999", "9 419 888"] }
+        ];
+        let st4 = st4Templates.map(item => ({
+            q: `Aşağıdaki sayılardan en büyüğü hangisidir? (${item.list})`,
+            a: [item.d, ...item.y],
+            correct: 0
+        }));
+
+        // 5. SORU: Toplama İşleminde Verilmeyen Toplananı Bulma
+        let st5 = [];
+        for (let i = 0; i < 4; i++) {
+            let a = (Math.floor(Math.random() * 25) + 15 + i * 7) * 100 + (i * 35 + 12);
+            let b = (Math.floor(Math.random() * 20) + 12 + i * 5) * 100 + (i * 21 + 18);
+            let top = a + b;
+            st5.push({
+                q: `[ ? ] + ${fmtNum(b)} = ${fmtNum(top)} işleminde kutu yerine hangi sayı gelmelidir?`,
+                a: [fmtNum(a), fmtNum(a + 100), fmtNum(a - 100), fmtNum(a + 10)],
+                correct: 0
+            });
+        }
+
+        // 6. SORU: Çıkarma İşleminde Eksilen - Çıkan - Fark İlişkisi
+        let st6 = [];
+        for (let i = 0; i < 4; i++) {
+            let cikan = 4200 + (i * 1350) + Math.floor(Math.random() * 300);
+            let fark = 15400 + (i * 2100) + Math.floor(Math.random() * 400);
+            let eksilen = cikan + fark;
+            st6.push({
+                q: `Bir çıkarma işleminde çıkan ${fmtNum(cikan)} ve fark ${fmtNum(fark)} ise eksilen kaçtır?`,
+                a: [fmtNum(eksilen), fmtNum(fark - cikan), fmtNum(eksilen + 1000), fmtNum(eksilen - 100)],
+                correct: 0
+            });
+        }
+
+        // 7. SORU: Kısa Yoldan Çarpma İşlemi
+        const carpmaSet = [[34, 200], [45, 300], [26, 400], [18, 500]];
+        let st7 = carpmaSet.map(p => {
+            let res = p[0] * p[1];
+            return {
+                q: `Kısa yoldan çarpma: ${p[0]} × ${p[1]} işleminin sonucu kaçtır?`,
+                a: [fmtNum(res), fmtNum(res * 10), fmtNum(res / 10), fmtNum(res + 1000)],
+                correct: 0
+            };
+        });
+
+        // 8. SORU: Kısa Yoldan Bölme İşlemi
+        const bolmeSet = [[48000, 200], [75000, 300], [96000, 400], [85000, 500]];
+        let st8 = bolmeSet.map(p => {
+            let res = p[0] / p[1];
+            return {
+                q: `Sıfırları sadeleştirerek böl: ${fmtNum(p[0])} ÷ ${p[1]} işleminin sonucu kaçtır?`,
+                a: [`${res}`, `${res * 10}`, `${res / 10}`, `${res + 20}`],
+                correct: 0
+            };
+        });
+
+        // 9. SORU: Çarpma ve Bölme İşleminde Verilmeyen Terimi Bulma
+        const st9Templates = [
+            { q: "[ ? ] × 25 = 600 işleminde verilmeyen çarpan kaçtır?", d: "24", y: ["25", "20", "30"] },
+            { q: "14 × [ ? ] = 784 işleminde verilmeyen çarpan kaçtır?", d: "56", y: ["46", "64", "54"] },
+            { q: "2970 ÷ [ ? ] = 90 işleminde verilmeyen bölen kaçtır?", d: "33", y: ["30", "37", "23"] },
+            { q: "[ ? ] ÷ 18 = 45 işleminde verilmeyen bölünen kaçtır?", d: "810", y: ["720", "900", "790"] }
+        ];
+        let st9 = st9Templates.map(v => ({ q: v.q, a: [v.d, ...v.y], correct: 0 }));
+
+        // 10. SORU: Gerçek Yaşam Problemi — Kalanı Yorumlama (+1 Sefer / Ay / Gün)
+        const st10Templates = [
+            { q: "250 öğrenci 11 kişilik teleferikle dağa çıkacaktır. Tüm öğrenciler için en az kaç sefer gerekir?", d: "23 sefer", y: ["22 sefer", "24 sefer", "21 sefer"] },
+            { q: "9875 TL'lik TV aylık en fazla 900 TL taksitle en erken kaç ayda biter?", d: "11 ay", y: ["10 ay", "12 ay", "9 ay"] },
+            { q: "Saatte 80 ekmek üreten fırın 9640 ekmeği kaçıncı saatte tamamlamış olur?", d: "121. saatte", y: ["120. saatte", "119. saatte", "122. saatte"] },
+            { q: "5000 baskılık yazıcı günde 27 baskı yaparsa mürekkebi kaçıncı gün biter?", d: "186. gün", y: ["185. gün", "184. gün", "187. gün"] }
+        ];
+        let st10 = st10Templates.map(pr => ({ q: pr.q, a: [pr.d, ...pr.y], correct: 0 }));
+
+        // 11. SORU: Gerçek Yaşam Problemi — Çok Adımlı Üretim ve Bütçe
+        const st11Templates = [
+            { q: "Günde 98 çift ayakkabı üreten atölyede 1 yılda (365 gün) kaç çift ayakkabı üretilir?", d: "35 770", y: ["36 500", "34 770", "35 870"] },
+            { q: "150 zeytin ağacının 115'inden 40 kg, kalanlarından 35 kg zeytin alınırsa toplam kaç kg olur?", d: "5825 kg", y: ["5600 kg", "6000 kg", "5725 kg"] },
+            { q: "4 çiftçi günde toplam 128 L süt sağıyor. 5760 L sütü birlikte kaç günde tamamlarlar?", d: "45 gün", y: ["40 gün", "48 gün", "42 gün"] },
+            { q: "Fiyatı 2760 TL olan bisikleti 12 ayda almak için ayda kaç TL biriktirmek gerekir?", d: "230 TL", y: ["220 TL", "240 TL", "210 TL"] }
+        ];
+        let st11 = st11Templates.map(pr => ({ q: pr.q, a: [pr.d, ...pr.y], correct: 0 }));
+
+        // 12. SORU: Şampiyonluk Finali — Zaman ve Mola Hesabı
+        const st12Templates = [
+            { q: "18.00'de başlayıp 50 dk, 50 dk ve 40 dk ders çalışan İnci, aralarda 15'er dk mola verirse kaçta bitirir?", d: "20.50", y: ["21.05", "20.20", "20.35"] },
+            { q: "17.00'de başlayıp 45 dk, 45 dk ve 30 dk ders çalışan Ali, aralarda 10'ar dk mola verirse kaçta bitirir?", d: "19.20", y: ["19.30", "19.00", "19.10"] },
+            { q: "İlk bölümü 12.35-13.28, ikinci bölümü 13.40-14.30 süren tiyatro oyunu (ara hariç) toplam kaç dk sürer?", d: "103 dk", y: ["115 dk", "93 dk", "105 dk"] },
+            { q: "İlk bölümü 14.15-15.05, ikinci bölümü 15.20-16.12 süren konser (ara hariç) toplam kaç dk sürer?", d: "102 dk", y: ["117 dk", "92 dk", "100 dk"] }
+        ];
+        let st12 = st12Templates.map(pr => ({ q: pr.q, a: [pr.d, ...pr.y], correct: 0 }));
+
+        istasyonlar = [
+            { ad: "1 / 12. SORU: BÖLÜK FARKI AVI", sorular: st1 },
+            { ad: "2 / 12. SORU: BASAMAK DEĞERİ", sorular: st2 },
+            { ad: "3 / 12. SORU: BÖLÜKLERİ BİRLEŞTİR", sorular: st3 },
+            { ad: "4 / 12. SORU: SIRALAMA & KARŞILAŞTIRMA", sorular: st4 },
+            { ad: "5 / 12. SORU: VERİLMEYEN TOPLANAN", sorular: st5 },
+            { ad: "6 / 12. SORU: EKSİLEN - ÇIKAN - FARK", sorular: st6 },
+            { ad: "7 / 12. SORU: KISA YOLDAN ÇARPMA", sorular: st7 },
+            { ad: "8 / 12. SORU: SIFIR AVCISI BÖLME", sorular: st8 },
+            { ad: "9 / 12. SORU: ÇARPMA-BÖLME VERİLMEYENİ", sorular: st9 },
+            { ad: "10 / 12. SORU: KALANI YORUMLAMA", sorular: st10 },
+            { ad: "11 / 12. SORU: ÇOK ADIMLI PROBLEM", sorular: st11 },
+            { ad: "12 / 12. SORU: ZAMAN & FİNAL", sorular: st12 }
+        ];
+    }
+
+    // SADECE İLGİLİ GRUBUN EKRANINA KENDİ SIRADAKİ SORUSUNU YÜKLER (DİĞERLERİNİ BEKLEMEZ!)
+    function yukleGrupSorusu(grupIndex) {
+        const qIdx = grupSoruIndeksi[grupIndex];
+        const ist = istasyonlar[qIdx];
+        const qData = ist.sorular[grupIndex];
+
+        document.getElementById(`st-${grupIndex}`).innerText = ist.ad;
+        document.getElementById(`q-${grupIndex}`).innerText = qData.q;
+        document.getElementById(`prog-${grupIndex}`).innerText = `İlerleme: ${qIdx} / 12`;
+
+        const ansBox = document.getElementById(`ans-${grupIndex}`);
+        ansBox.innerHTML = "";
+
+        let opts = qData.a.map((txt, idx) => ({ txt, isCorrect: idx === qData.correct }));
+        opts.sort(() => Math.random() - 0.5);
+
+        opts.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.className = "ans-btn";
+            btn.innerText = opt.txt;
+            btn.disabled = !yarisBasladiMi;
+            btn.onclick = () => cevapVer(grupIndex, opt.isCorrect, btn);
+            ansBox.appendChild(btn);
+        });
+    }
+
+    // TEK SEFERDE YARIŞI BAŞLATIR VE TEK GENEL SÜREYİ ÇALIŞTIRIR
+    function yarisiBaslat() {
+        if (yarisBasladiMi) return;
+        yarisBasladiMi = true;
+
+        const startBtn = document.getElementById('btnStartRace');
+        if (startBtn) {
+            startBtn.disabled = true;
+            startBtn.innerText = "🔥 YARIŞ DEVAM EDİYOR...";
+            startBtn.style.opacity = "0.75";
+        }
+
+        for (let i = 0; i < aktifOyuncuSayisi; i++) {
+            const statusTag = document.getElementById(`status-${i}`);
+            statusTag.innerText = "⚡ Yarışıyor...";
+            statusTag.style.background = "#0284C7";
+            document.querySelectorAll(`#ans-${i} .ans-btn`).forEach(b => b.disabled = false);
+        }
+
+        globalStartTime = Date.now();
+        timerRef = setInterval(() => {
+            globalElapsed = (Date.now() - globalStartTime) / 1000;
+            document.getElementById('globalTimerDisplay').innerText = globalElapsed.toFixed(1);
+        }, 100);
+    }
+
+    function durSüre() {
+        clearInterval(timerRef);
+        yarisBasladiMi = false;
+    }
+
+    // İŞARETLEME YAPILDIĞI ANDA SADECE O GRUP ANINDA KENDİ BİR SONRAKİ SORUSUNA GEÇER!
+    function cevapVer(grupIndex, isCorrect, clickedBtn) {
+        if (!yarisBasladiMi || grupBitirdiMi[grupIndex]) return;
+
+        // Çift tıklamayı önlemek için anında kilitle
+        document.querySelectorAll(`#ans-${grupIndex} .ans-btn`).forEach(b => b.disabled = true);
+        const statusTag = document.getElementById(`status-${grupIndex}`);
+
+        if (isCorrect) {
+            puanlar[grupIndex] += 20;
+            dogruSayisi[grupIndex]++;
+            document.getElementById(`score-${grupIndex}`).innerText = `${puanlar[grupIndex]} Puan`;
+            statusTag.innerText = `✓ DOĞRU (+20 P) • Sonraki...`;
+            statusTag.style.background = "#16A34A";
+            clickedBtn.style.background = "#16A34A";
+        } else {
+            statusTag.innerText = `✕ YANLIŞ (0 P) • Sonraki...`;
+            statusTag.style.background = "#E11D48";
+            clickedBtn.style.background = "#E11D48";
+        }
+
+        // 300 ms anlık yeşil/kırmızı geri bildiriminden sonra sadece bu kulvar bir sonraki soruya geçer
+        setTimeout(() => {
+            grupSoruIndeksi[grupIndex]++;
+
+            if (grupSoruIndeksi[grupIndex] < istasyonlar.length) {
+                yukleGrupSorusu(grupIndex);
+                statusTag.innerText = `⚡ Soru ${grupSoruIndeksi[grupIndex] + 1} / 12`;
+                statusTag.style.background = "#0284C7";
+            } else {
+                // Bu kulvar 12 sorunun tamamını bitirdi!
+                grupBitirdiMi[grupIndex] = true;
+                bitirenSira++;
+                bitisSuresi[grupIndex] = globalElapsed;
+
+                // Erken bitirme hız bonusu (1. bitirene +15, 2. bitirene +10, 3. bitirene +5)
+                let hizBonusu = aktifOyuncuSayisi === 1 ? 0 : Math.max(0, 20 - (bitirenSira * 5));
+                if (hizBonusu > 0) {
+                    puanlar[grupIndex] += hizBonusu;
+                    document.getElementById(`score-${grupIndex}`).innerText = `${puanlar[grupIndex]} Puan`;
+                }
+
+                document.getElementById(`prog-${grupIndex}`).innerText = `İlerleme: 12 / 12 (BİTTİ!)`;
+                statusTag.innerText = `🏁 ${bitirenSira}. BİTİRDİ (${bitisSuresi[grupIndex].toFixed(1)} sn)`;
+                statusTag.style.background = "#16A34A";
+
+                const qArea = document.getElementById(`qarea-${grupIndex}`);
+                qArea.innerHTML = `
+                    <div style="text-align:center; padding:25px 10px;">
+                        <div style="font-size:2.5rem; margin-bottom:8px;">🏁</div>
+                        <h3 style="color:#FDE047; font-size:1.3rem; margin-bottom:6px;">PARKUR TAMAMLANDI!</h3>
+                        <p style="font-size:1.05rem; margin-bottom:6px;">Doğru Sayısı: <strong>${dogruSayisi[grupIndex]} / 12</strong></p>
+                        <p style="font-size:1.05rem; margin-bottom:6px;">Bitirme Süresi: <strong>${bitisSuresi[grupIndex].toFixed(1)} saniye</strong></p>
+                        ${hizBonusu > 0 ? `<p style="color:#86EFAC; font-weight:800;">⚡ Hız Bonusu: +${hizBonusu} Puan</p>` : ''}
+                        <p style="color:#94A3B8; font-size:0.88rem; margin-top:10px;">Diğer kulvarların tamamlaması bekleniyor...</p>
+                    </div>
+                `;
+
+                // Tüm aktif kulvarlar 12 soruyu bitirdi mi kontrol et
+                let hepsiBitti = true;
+                for (let k = 0; k < aktifOyuncuSayisi; k++) {
+                    if (!grupBitirdiMi[k]) hepsiBitti = false;
+                }
+                if (hepsiBitti) {
+                    durSüre();
+                    setTimeout(sampiyonuGoster, 700);
+                }
+            }
+        }, 320);
+    }
+
+    function startOfflineConfetti() {
+        const canvas = document.getElementById('confettiCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const colors = ['#FDE047', '#38BDF8', '#22C55E', '#F43F5E', '#A855F7'];
+        let pieces = Array.from({ length: 130 }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height - canvas.height,
+            w: Math.random() * 10 + 6,
+            h: Math.random() * 10 + 6,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            vy: Math.random() * 3 + 2,
+            vx: Math.random() * 2 - 1
+        }));
+
+        function loop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            pieces.forEach(p => {
+                p.y += p.vy;
+                p.x += p.vx;
+                if (p.y > canvas.height) p.y = -10;
+                ctx.fillStyle = p.color;
+                ctx.fillRect(p.x, p.y, p.w, p.h);
+            });
+            confettiAnimId = requestAnimationFrame(loop);
+        }
+        loop();
+    }
+
+    function sampiyonuGoster() {
+        if (aktifOyuncuSayisi === 1) {
+            document.getElementById('winnerText').innerText = `🏆 TOPLAM PUAN: ${puanlar[0]} / 240 • SÜRE: ${bitisSuresi[0].toFixed(1)} sn`;
+        } else {
+            const aktifPuanlar = puanlar.slice(0, aktifOyuncuSayisi);
+            const maxPuan = Math.max(...aktifPuanlar);
+            let kazananlar = [];
+            aktifPuanlar.forEach((p, idx) => {
+                if (p === maxPuan) kazananlar.push(`${tumGrupBilgileri[idx].ad} (${bitisSuresi[idx].toFixed(1)} sn)`);
+            });
+            document.getElementById('winnerText').innerText = `🏆 ŞAMPİYON: ${kazananlar.join(" & ")} — ${maxPuan} Puan!`;
+        }
+        document.getElementById('victoryModal').style.display = 'flex';
+        startOfflineConfetti();
+    }
+
+    function oyunuSifirlaVeYenidenBaslat() {
+        durSüre();
+        cancelAnimationFrame(confettiAnimId);
+        const canvas = document.getElementById('confettiCanvas');
+        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+        document.getElementById('victoryModal').style.display = 'none';
+
+        const startBtn = document.getElementById('btnStartRace');
+        if (startBtn) {
+            startBtn.disabled = false;
+            startBtn.innerText = "▶ YARIŞI BAŞLAT";
+            startBtn.style.opacity = "1";
+        }
+        document.getElementById('globalTimerDisplay').innerText = "00.0";
+
+        puanlar = [0, 0, 0, 0];
+        dogruSayisi = [0, 0, 0, 0];
+        grupSoruIndeksi = [0, 0, 0, 0];
+        bitisSuresi = [0, 0, 0, 0];
+        grupBitirdiMi = [false, false, false, false];
+        bitirenSira = 0;
+
+        buildArenaSlots();
+        rastgeleSorulariUret();
+        for (let i = 0; i < aktifOyuncuSayisi; i++) {
+            yukleGrupSorusu(i);
+        }
+    }
+
+    function generateCertificate() {
+        const name = document.getElementById('studentNameInput').value.trim();
+        if (name) document.getElementById('certStudentName').innerText = name.toUpperCase();
+        document.getElementById('certificateBox').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    window.onload = function() {
+        initAbacus();
+        renderProblems('ALL');
+        oyunuSifirlaVeYenidenBaslat();
+    };
+</script>
+</body>
+</html>
